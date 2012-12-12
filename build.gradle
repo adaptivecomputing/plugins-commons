@@ -29,8 +29,6 @@ subprojects { proj ->
 	
 	sourceCompatibility = "1.6"
 	targetCompatibility = "1.6"
-	if (proj.name=="commons" || proj.name=="testing")
-		proj.version = rootProject.'commons.version'
 
 	manifest.mainAttributes(
 			"Built-By": System.properties['user.name'],
