@@ -1,4 +1,3 @@
-group = "com.adaptc.mws"
 archivesBaseName = "plugins-commons"
 
 dependencies {
