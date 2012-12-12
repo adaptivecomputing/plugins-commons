@@ -1,6 +1,8 @@
 apply plugin:'idea'
 
 subprojects { proj ->
+	group = "com.adaptc.mws"
+
 	apply plugin:'java'
 	apply plugin:'maven'
 	apply plugin:'signing'
