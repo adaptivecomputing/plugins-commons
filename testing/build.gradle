@@ -15,10 +15,3 @@ eclipse {
 		comment = 'MWS Plugins Commons Testing'
 	}
 }
-
-// Customize the POM file for dependency
-[uploadArchives.repositories.mavenDeployer]*.pom*.whenConfigured {pom ->
-	def dependency = pom.dependencies.find { it.artifactId == 'plugins-commons' }
-	dependency.groupId = "com.adaptc.mws"
-	dependency.artifactId = "plugins-commons"
-}
