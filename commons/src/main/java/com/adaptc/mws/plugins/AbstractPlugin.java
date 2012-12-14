@@ -159,41 +159,4 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 	public boolean nodePower(List<String> nodes, NodeReportPower state) {
 		throw new UnsupportedOperationException();
 	}
-	/**
-	 * Creates a resource with the specified arguments.
-	 * @param type The type of the resource (ie vm)
-	 * @param name The name of the resource (ie hv1:vm1 for a VM)
-	 * @param attributes The attributes used to create the resource
-	 * @return True if successful, false if an error occurred
-	 */
-	public boolean resourceCreate(String type, String name, Map<String, String> attributes) {
-		throw new UnsupportedOperationException();
-	}
-	/**
-	 * Modifies system properties as specified.
-	 * @param properties The system properties to modify
-	 * @return True if successful, false if an error occurred
-	 */
-	public boolean systemModify(Map<String, String> properties) {
-		throw new UnsupportedOperationException();
-	}
-	/**
-	 * Retrieves the specified system attribute(s).
-	 * @param attributes The attributes to query for
-	 * @return A list of attribute values
-	 */
-	public List<String> systemQuery(List<String> attributes) {
-		throw new UnsupportedOperationException();
-	}
-	/**
-	 * Migrates a virtual machine with the specified ID to the specified
-	 * hypervisor.
-	 * @param vmName			The name of the virtual machine
-	 * @param hypervisorName	The name of the new desired hypervisor for the VM
-	 * @param operationName		The name of the operation
-	 * @return True if successful, false if an error occurred
-	 */
-	public boolean virtualMachineMigrate(String vmName, String hypervisorName, String operationName) {
-		throw new UnsupportedOperationException();
-	}
 }
