@@ -5,7 +5,7 @@ package com.adaptc.mws.plugins;
  * on job flags, see
  * http://www.adaptivecomputing.com/resources/docs/mwm/6-1/Content/jobflagoverview.html
  */
-enum JobReportFlag {
+public enum JobReportFlag {
 	NONE,
 	/**
 	 * This job is the master of a job array.
