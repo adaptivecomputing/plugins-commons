@@ -72,7 +72,7 @@ class MockSslService implements ISslService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	SSLSocketFactory getLenientSocketFactory() {
+	public SSLSocketFactory getLenientSocketFactory() {
 		def trustManagers = getLenientTrustManagers()
 		return getSocketFactoryInternal(null, trustManagers)
 	}
@@ -81,7 +81,16 @@ class MockSslService implements ISslService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	HostnameVerifier getLenientHostnameVerifier() {
+	public org.apache.http.conn.ssl.SSLSocketFactory getLenientHttpClientSocketFactory() {
+		def trustManagers = getLenientTrustManagers()
+		return getHttpClientSocketFactoryInternal(null, trustManagers)
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public HostnameVerifier getLenientHostnameVerifier() {
 		return ([
 				verify:{ String string, SSLSession sslSession ->
 					return true
@@ -102,6 +111,16 @@ class MockSslService implements ISslService {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactory(String clientCertificate,
+																	  String clientCertAlias) throws Exception {
+		def keyManagers = getKeyManagers(clientCertificate, clientCertAlias, null, null)
+		return getHttpClientSocketFactoryInternal(keyManagers, null)
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public SSLSocketFactory getSocketFactory(String clientCertificate, String clientCertAlias,
 											 String clientPrivateKey, String clientKeyPassword) throws Exception {
 		def keyManagers = getKeyManagers(clientCertificate, clientCertAlias, clientPrivateKey, clientKeyPassword)
@@ -112,9 +131,28 @@ class MockSslService implements ISslService {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactory(String clientCertificate,
+					String clientCertAlias, String clientPrivateKey, String clientKeyPassword) throws Exception {
+		def keyManagers = getKeyManagers(clientCertificate, clientCertAlias, clientPrivateKey, clientKeyPassword)
+		return getHttpClientSocketFactoryInternal(keyManagers, null)
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public SSLSocketFactory getSocketFactory(String serverCertificate) throws Exception {
 		def trustManagers = getTrustManagers(serverCertificate)
 		return getSocketFactoryInternal(null, trustManagers)
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactory(String serverCertificate) throws Exception {
+		def trustManagers = getTrustManagers(serverCertificate)
+		return getHttpClientSocketFactoryInternal(null, trustManagers)
 	}
 
 	/**
@@ -132,6 +170,17 @@ class MockSslService implements ISslService {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactory(String clientCertificate,
+						String clientCertAlias, String serverCertificate) throws Exception {
+		def keyManagers = getKeyManagers(clientCertificate, clientCertAlias, null, null)
+		def trustManagers = getTrustManagers(serverCertificate)
+		return getHttpClientSocketFactoryInternal(keyManagers, trustManagers)
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public SSLSocketFactory getSocketFactory(String clientCertificate, String clientCertAlias, String clientPrivateKey,
 											 String clientKeyPassword, String serverCertificate) throws Exception {
 		def keyManagers = getKeyManagers(clientCertificate, clientCertAlias, clientPrivateKey, clientKeyPassword)
@@ -139,11 +188,30 @@ class MockSslService implements ISslService {
 		return getSocketFactoryInternal(keyManagers, trustManagers)
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactory(String clientCertificate,
+											String clientCertAlias, String clientPrivateKey,
+											 String clientKeyPassword, String serverCertificate) throws Exception {
+		def keyManagers = getKeyManagers(clientCertificate, clientCertAlias, clientPrivateKey, clientKeyPassword)
+		def trustManagers = getTrustManagers(serverCertificate)
+		return getHttpClientSocketFactoryInternal(keyManagers, trustManagers)
+	}
+
 	private SSLSocketFactory getSocketFactoryInternal(KeyManager[] keyManagers,
 													  TrustManager[] trustManagers) throws Exception {
 		SSLContext context = SSLContext.getInstance("TLS");
 		context.init(keyManagers, trustManagers, new SecureRandom());
 		return context.getSocketFactory();
+	}
+
+	private org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactoryInternal(KeyManager[] keyManagers,
+											TrustManager[] trustManagers) throws Exception {
+		SSLContext context = SSLContext.getInstance("TLS");
+		context.init(keyManagers, trustManagers, new SecureRandom());
+		return new org.apache.http.conn.ssl.SSLSocketFactory(context);
 	}
 
 	/**
@@ -203,8 +271,9 @@ class MockSslService implements ISslService {
 		CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509")
 		KeyStore trustStore = KeyStore.getInstance("JKS")
 		trustStore.load(null, KEYSTORE_PASSWORD)
-		certificateFactory.generateCertificates(new FileInputStream(getCertificateFile(serverCertificate))).eachWithIndex { Certificate cert, int i ->
-			trustStore.setCertificateEntry("ca${i}", cert)
+		certificateFactory.generateCertificates(
+				new FileInputStream(getCertificateFile(serverCertificate))).eachWithIndex { Certificate cert, int i ->
+					trustStore.setCertificateEntry("ca${i}", cert)
 		}
 		// Can use this line for debugging the store
 		//trustStore.store(new FileOutputStream("/opt/mws/security/truststore.jks"), KEYSTORE_PASSWORD)
