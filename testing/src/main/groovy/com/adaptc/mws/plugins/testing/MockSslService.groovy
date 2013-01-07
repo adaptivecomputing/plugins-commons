@@ -22,6 +22,7 @@ import javax.net.ssl.HostnameVerifier
 import javax.net.ssl.SSLSession
 import org.apache.commons.logging.LogFactory
 import org.apache.commons.logging.Log
+import javax.net.ssl.SSLSocket
 
 /**
  * A fully functional mock implementation of ISslService.  This should be used in testing only and should never
@@ -81,21 +82,31 @@ class MockSslService implements ISslService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public org.apache.http.conn.ssl.SSLSocketFactory getLenientHttpClientSocketFactory() {
+	public org.apache.http.conn.ssl.SSLSocketFactory getLenientHttpClientSocketFactory(
+			boolean useLenientHostnameVerifier=false) {
 		def trustManagers = getLenientTrustManagers()
-		return getHttpClientSocketFactoryInternal(null, trustManagers)
+		return getHttpClientSocketFactoryInternal(null, trustManagers,
+				useLenientHostnameVerifier ? getLenientHttpClientHostnameVerifier() :  null)
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public HostnameVerifier getLenientHostnameVerifier() {
+	HostnameVerifier getLenientHostnameVerifier() {
 		return ([
 				verify:{ String string, SSLSession sslSession ->
 					return true
 				}
 		] as HostnameVerifier)
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	org.apache.http.conn.ssl.X509HostnameVerifier getLenientHttpClientHostnameVerifier() {
+		return new LenientHttpClientX509HostnameVerifier()
 	}
 
 	/**
@@ -207,10 +218,13 @@ class MockSslService implements ISslService {
 		return context.getSocketFactory();
 	}
 
-	private org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactoryInternal(KeyManager[] keyManagers,
-											TrustManager[] trustManagers) throws Exception {
+	private org.apache.http.conn.ssl.SSLSocketFactory getHttpClientSocketFactoryInternal(
+			KeyManager[] keyManagers, TrustManager[] trustManagers,
+			org.apache.http.conn.ssl.X509HostnameVerifier hostnameVerifier=null) throws Exception {
 		SSLContext context = SSLContext.getInstance("TLS");
 		context.init(keyManagers, trustManagers, new SecureRandom());
+		if (hostnameVerifier)
+			return new org.apache.http.conn.ssl.SSLSocketFactory(context, hostnameVerifier);
 		return new org.apache.http.conn.ssl.SSLSocketFactory(context);
 	}
 
@@ -350,4 +364,17 @@ class AliasForcingKeyManager implements X509KeyManager {
 	public String[] getServerAliases(String keyType, Principal[] issuers) {
 		return baseKM.getServerAliases(keyType, issuers);
 	}
+}
+
+/**
+ * Simple class that in reality does nothing except return true and not throw exceptions.
+ * Used to be a lenient hostname verifier for the Http Client libraries.
+ */
+class LenientHttpClientX509HostnameVerifier implements org.apache.http.conn.ssl.X509HostnameVerifier {
+	boolean verify(String string, SSLSession sslSession) {
+		return true
+	}
+	void verify(String string, SSLSocket socket) throws IOException {}
+	void verify(String s, X509Certificate x509Certificate) throws IOException {}
+	void verify(String s, String[] strings, String[] strings1) throws IOException {}
 }
