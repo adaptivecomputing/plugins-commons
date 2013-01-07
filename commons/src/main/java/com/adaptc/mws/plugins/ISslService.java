@@ -44,8 +44,18 @@ public interface ISslService {
 	/**
 	 * Exactly the same as {@link #getLenientSocketFactory}, except the socket factory returned is the
 	 * HttpClient version instead of the java built-in version.
+	 * Identical to calling getLenientHttpClientSocketFactory(false).
+	 * @see #getLenientHttpClientSocketFactory(boolean)
 	 */
 	public org.apache.http.conn.ssl.SSLSocketFactory getLenientHttpClientSocketFactory() throws Exception;
+
+	/**
+	 * Exactly the same as {@link #getLenientHttpClientSocketFactory}, except the socket factory returned is the
+	 * HttpClient version instead of the java built-in version.
+	 * @param useLenientHostnameVerifier If true, uses the {@link #getLenientHttpClientHostnameVerifier()} method to set the hostname verifier on the socket factory
+	 */
+	public org.apache.http.conn.ssl.SSLSocketFactory getLenientHttpClientSocketFactory(
+			boolean useLenientHostnameVerifier) throws Exception;
 
 	/**
 	 * Generates a hostname verifier that automatically trusts all host names.<br/>
