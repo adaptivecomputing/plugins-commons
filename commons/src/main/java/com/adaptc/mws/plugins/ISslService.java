@@ -54,6 +54,11 @@ public interface ISslService {
 	 * @return A HostnameVerifier instance that may be used in the communication library of choice
 	 */
 	public HostnameVerifier getLenientHostnameVerifier();
+	/**
+	 * Exactly the same as {@link #getLenientHostnameVerifier}, except the hostname verifier returned is the
+	 * HttpClient version instead of the java built-in version.
+	 */
+	public org.apache.http.conn.ssl.X509HostnameVerifier getLenientHttpClientHostnameVerifier() throws Exception;
 
 	/**
 	 * Generates a socket factory for the specified options.
