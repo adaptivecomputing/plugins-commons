@@ -99,10 +99,10 @@ public class MoabRestResponse {
 	 * @return
 	 */
 	private Object convert(JSON json) {
-		if (data instanceof JSONObject)
-			return convert((JSONObject)data);
-		else if (data instanceof JSONArray)
-			return convert((JSONArray)data);
+		if (json instanceof JSONObject)
+			return convert((JSONObject)json);
+		else if (json instanceof JSONArray)
+			return convert((JSONArray)json);
 		else
 			return null;
 	}
