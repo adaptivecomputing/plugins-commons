@@ -40,6 +40,9 @@ class ComponentUnitTestMixin extends UnitTestMixin {
 	 */
 	def <T> T mockComponent(Class<T> componentClass) {
 		def component = componentClass.newInstance()
+		def mc = component.metaClass
+		mc.message = { Map map -> return map.code ?: map.error }
+
 		return component
 	}
 }

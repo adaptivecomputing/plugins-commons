@@ -53,6 +53,7 @@ class TranslatorUnitTestMixin extends UnitTestMixin {
 		def translator = translatorClass.newInstance()
 		def mc = translator.metaClass
 		mc.getLog = { -> log }
+		mc.message = { Map map -> return map.code ?: map.error }
 		
 		return translator
 	}
