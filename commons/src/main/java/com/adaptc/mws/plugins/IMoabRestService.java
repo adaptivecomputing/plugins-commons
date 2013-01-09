@@ -37,6 +37,13 @@ import net.sf.json.JSONArray;
  */
 public interface IMoabRestService {
 	/**
+	 * Returns whether or not the specified API version is supported by this version of Moab Web Services.
+	 * @param apiVersion The API version as an integer (i.e. 1, 2, etc)
+	 * @return True if the API version is supported, false if configuration or MWS version prevents the API version from being used
+	 */
+	boolean isAPIVersionSupported(int apiVersion);
+
+	/**
 	 * Shortcut for calling {@link #get(Map, String, Closure)} with 
 	 * no options or data.
 	 * @param url The URL to call
