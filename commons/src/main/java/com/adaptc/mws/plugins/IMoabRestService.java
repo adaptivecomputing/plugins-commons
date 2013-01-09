@@ -8,7 +8,11 @@ import net.sf.json.JSONArray;
 
 /**
  * The Moab REST service gives easy access to all supported REST resources
- * in Moab Web Services.  Methods are provided to perform each HTTP method:
+ * in Moab Web Services.  The {@link #isAPIVersionSupported(int)} method may
+ * also be used to determine which API versions may be used for the current
+ * running instance of MWS.
+ * <p/>
+ * Methods are provided to perform each HTTP method:
  * GET, POST, PUT, and DELETE.  Several variations are given of each method
  * in order to utilize simpler or more complicated requests.  Each operation 
  * is performed internally.  In other words, no external network
@@ -36,6 +40,13 @@ import net.sf.json.JSONArray;
  * @author bsaville
  */
 public interface IMoabRestService {
+	/**
+	 * Returns whether or not the specified API version is supported by this version of Moab Web Services.
+	 * @param apiVersion The API version as an integer (i.e. 1, 2, etc)
+	 * @return True if the API version is supported, false if configuration or MWS version prevents the API version from being used
+	 */
+	boolean isAPIVersionSupported(int apiVersion);
+
 	/**
 	 * Shortcut for calling {@link #get(Map, String, Closure)} with 
 	 * no options or data.
