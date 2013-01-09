@@ -8,7 +8,11 @@ import net.sf.json.JSONArray;
 
 /**
  * The Moab REST service gives easy access to all supported REST resources
- * in Moab Web Services.  Methods are provided to perform each HTTP method:
+ * in Moab Web Services.  The {@link #isAPIVersionSupported(int)} method may
+ * also be used to determine which API versions may be used for the current
+ * running instance of MWS.
+ * <p/>
+ * Methods are provided to perform each HTTP method:
  * GET, POST, PUT, and DELETE.  Several variations are given of each method
  * in order to utilize simpler or more complicated requests.  Each operation 
  * is performed internally.  In other words, no external network
