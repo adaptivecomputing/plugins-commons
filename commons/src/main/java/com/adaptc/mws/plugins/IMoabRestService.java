@@ -1,5 +1,6 @@
 package com.adaptc.mws.plugins;
 
+import java.util.Date;
 import java.util.Map;
 import groovy.lang.Closure;
 import net.sf.json.JSON;
@@ -46,6 +47,14 @@ public interface IMoabRestService {
 	 * @return True if the API version is supported, false if configuration or MWS version prevents the API version from being used
 	 */
 	boolean isAPIVersionSupported(int apiVersion);
+
+	/**
+	 * Converts an MWS specific date string into an actual Date object.  This may be used to convert the date output
+	 * from Moab Rest Service's {@link #get} methods.
+	 * @param dateString The date string to convert into a date
+	 * @return A converted date object
+	 */
+	Date convertDateString(String dateString);
 
 	/**
 	 * Shortcut for calling {@link #get(Map, String, Closure)} with 
