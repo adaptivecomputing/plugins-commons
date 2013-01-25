@@ -45,6 +45,10 @@ public class VirtualMachineReport {
 	 */
 	private String host;
 	/**
+	 * The VM's IPv4 address.
+	 */
+	private String ipAddress;
+	/**
 	 * The VM's resources information.  Note that no null checks are needed to act on the resources.
 	 */
 	private ReportResourceMap resources = new ReportResourceMap();
@@ -171,6 +175,18 @@ public class VirtualMachineReport {
 	 */
 	public void setHost(String host) {
 		this.host = host;
+	}
+	/**
+	 * @see #ipAddress
+	 */
+	public String getIpAddress() {
+		return ipAddress;
+	}
+	/**
+	 * @see #ipAddress
+	 */
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 	/**
 	 * @see #resources
