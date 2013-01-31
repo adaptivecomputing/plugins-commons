@@ -21,7 +21,8 @@ import com.adaptc.mws.plugins.PluginConstants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory
 import com.adaptc.mws.plugins.testing.support.ConstraintsTestBuilder
-import com.adaptc.mws.plugins.testing.support.ValidatorTestDelegate;
+
+import com.adaptc.mws.plugins.testing.support.PluginConstraintTestDelegate;
 
 /**
  * A mixin that can be applied to a unit test in order to test plugins.
@@ -34,7 +35,7 @@ class PluginUnitTestMixin extends UnitTestMixin {
 	 * The plugin configuration object
 	 */
 	Map<String, Object> config = [:]
-	Map<String, Object> appConfig = [:]
+	ConfigObject appConfig = new ConfigObject()
 	Log log
 	Map<String, Map<String, Object>> constraints = [:]
 
@@ -77,7 +78,9 @@ class PluginUnitTestMixin extends UnitTestMixin {
 			}
 			constraints.each { String propertyName, Map<String, Object> attributes ->
 				if (attributes.containsKey("validator") && attributes.validator instanceof Closure)
-					attributes.validator.delegate = new ValidatorTestDelegate(propertyName, plugin)
+					attributes.validator.delegate = new PluginConstraintTestDelegate(propertyName, plugin, appConfig)
+				if (attributes.containsKey("defaultValue") && attributes.defaultValue instanceof Closure)
+					attributes.defaultValue.delegate = new PluginConstraintTestDelegate(propertyName, plugin, appConfig)
 			}
 		}
 

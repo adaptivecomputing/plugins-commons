@@ -1,17 +1,20 @@
 package com.adaptc.mws.plugins.testing.support
 
 import org.apache.commons.lang.StringUtils
+import com.adaptc.mws.plugins.Suite
 
 /**
  * @author bsaville
  */
-class ValidatorTestDelegate {
+class PluginConstraintTestDelegate {
 	private final String propertyName;
 	private final Object pluginInstance;
+	private final ConfigObject appConfig;
 
-	public ValidatorTestDelegate(String propertyName, Object pluginInstance) {
+	public PluginConstraintTestDelegate(String propertyName, Object pluginInstance, ConfigObject appConfig) {
 		this.propertyName = propertyName
 		this.pluginInstance = pluginInstance
+		this.appConfig = appConfig
 	}
 
 	@SuppressWarnings("unused")
@@ -25,6 +28,14 @@ class ValidatorTestDelegate {
 	@SuppressWarnings("unused")
 	public Object getApplicationContext() {
 		return getService("applicationContext");
+	}
+
+	public ConfigObject getAppConfig() {
+		return appConfig
+	}
+
+	public Suite getSuite() {
+		return (Suite)(((ConfigObject)((ConfigObject)getAppConfig()).get("mws"))).get("suite");
 	}
 
 	/**
