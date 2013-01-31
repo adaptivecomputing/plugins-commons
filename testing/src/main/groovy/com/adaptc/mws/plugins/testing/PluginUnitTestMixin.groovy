@@ -60,6 +60,7 @@ class PluginUnitTestMixin extends UnitTestMixin {
 		
 		def plugin = pluginClass.newInstance()
 		def mc = plugin.metaClass
+		mc.getPluginType = { -> pluginClass.name-"Plugin" }
 		mc.getConfig = { -> config }
 		mc.getAppConfig = { -> appConfig }
 		mc.getLog = { -> log }
