@@ -87,8 +87,9 @@ public class NodeReport {
 	private String architecture;
     /**
      * The node's attributes which jobs can request with specific constraints and requirements.
+	 * Note that no null checks are needed to act on the attributes.
      */
-    private Map<String, String> attributes = new HashMap<String, String>();
+    private ReportAttributeMap attributes = new ReportAttributeMap();
 	/**
 	 * The ID of the plugin which has generated the report.  NOTE: This is overridden by
 	 * the RM services automatically and should not be set by the plugin.
@@ -318,13 +319,13 @@ public class NodeReport {
     /**
      * @see #attributes
      */
-    public Map<String, String> getAttributes() {
+    public ReportAttributeMap getAttributes() {
         return attributes;
     }
     /**
      * @see #attributes
      */
-    public void setAttributes(Map<String, String> attributes) {
+    public void setAttributes(ReportAttributeMap attributes) {
         this.attributes = attributes;
     }
 	/**
