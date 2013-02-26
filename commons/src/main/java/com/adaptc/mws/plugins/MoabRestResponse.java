@@ -1,9 +1,14 @@
 package com.adaptc.mws.plugins;
 
 import net.sf.json.JSON;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import org.springframework.mock.web.MockHttpServletResponse;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -78,5 +83,69 @@ public class MoabRestResponse {
 	 */
 	public boolean hasError() {
 		return !success;
+	}
+
+	/**
+	 * Returns data converted to an actual Map or List (or null) instead of a {@link JSON} instance.
+	 * @return The equivalent of {@link #getData()} converted to a simple Map or List
+	 */
+	public Object getConvertedData() {
+		return convert(data);
+	}
+
+	/**
+	 * Utility method for converting {@link #data} from a {@link JSON} instance.
+	 * @param json
+	 * @return
+	 */
+	private Object convert(JSON json) {
+		if (json instanceof JSONObject)
+			return convert((JSONObject)json);
+		else if (json instanceof JSONArray)
+			return convert((JSONArray)json);
+		else
+			return null;
+	}
+
+	/**
+	 * Recursive utility method for converting {@link #data} from a {@link JSON} instance.
+	 * @param jsonObject
+	 * @return
+	 */
+	private Map convert(JSONObject jsonObject) {
+		Map obj = new HashMap();
+		for (Object k : jsonObject.keySet()) {
+			Object v = jsonObject.get(k);
+			if (v instanceof JSON)
+				obj.put(k, convert((JSON)v));
+			else
+				obj.put(k, v);
+		}
+		return obj;
+	}
+
+	/**
+	 * Recursive utility method for converting {@link #data} from a {@link JSON} instance.
+	 * @param jsonArray
+	 * @return
+	 */
+	private List convert(JSONArray jsonArray) {
+		List list = new ArrayList();
+		for(Object v : jsonArray) {
+			if (v instanceof JSON)
+				list.add(convert((JSON)v));
+			else
+				list.add(v);
+		}
+		return list;
+	}
+
+	/**
+	 * Recursive utility method for converting {@link #data} from a {@link JSON} instance.
+	 * @param jsonNull
+	 * @return
+	 */
+	private Object convert(JSONNull jsonNull) {
+		return null;
 	}
 }
