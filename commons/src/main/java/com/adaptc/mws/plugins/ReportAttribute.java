@@ -2,17 +2,17 @@ package com.adaptc.mws.plugins;
 
 /**
  * Signifies a single node attribute definition in Moab Workload Manager, including
- * both the {@link #getValue()} and {@link #getDisplayName()} properties.
+ * both the {@link #getValue()} and {@link #getDisplayValue()} properties.
  * <p/>
- * Neither property is required to send a valid attribute to MWM, but if a display name is
- * used, a value must also be present.  A value may be present without a display name.
+ * Neither property is required to send a valid attribute to MWM, but if a display value is
+ * used, a value must also be present.  A value may be present without a display value.
  * The value should be used by jobs to request a certain attribute a certain value, while the
- * display name is used for display purposes only.
+ * display value is used for display purposes only.
  * @author bsaville
  */
 public class ReportAttribute {
 	private String value;
-	private String displayName;
+	private String displayValue;
 
 	/**
 	 * Retrieves the value of this attribute, which is what must requested by a job.
@@ -31,27 +31,27 @@ public class ReportAttribute {
 	}
 
 	/**
-	 * Retrieves the display name related to the value of this attribute.
+	 * Retrieves the display value related to the value of this attribute.
 	 * @return The current value
 	 */
-	public String getDisplayName() {
-		return displayName;
+	public String getDisplayValue() {
+		return displayValue;
 	}
 
 	/**
-	 * Sets the display name related to the value of this attribute.
-	 * @param displayName The value to set
+	 * Sets the display value related to the value of this attribute.
+	 * @param displayValue The value to set
 	 */
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
+	public void setDisplayValue(String displayValue) {
+		this.displayValue = displayValue;
 	}
 
 	/**
-	 * Returns the value and display name as a string, such as "[value:val, displayName:my value]".
+	 * Returns the value and display value as a string, such as "[value:val, displayValue:my value]".
 	 * @return The total and available amounts in a human-readable string
 	 */
 	@Override
 	public String toString() {
-		return "[value:"+value+", displayName:"+displayName+"]";
+		return "[value:"+value+", displayValue:"+displayValue+"]";
 	}
 }
