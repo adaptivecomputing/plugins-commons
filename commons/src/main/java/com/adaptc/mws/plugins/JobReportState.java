@@ -30,50 +30,24 @@ public enum JobReportState {
 	 */
 	COMPLETED ("Completed"),
 	/**
-	 * Job is blocked by resource manager hold.
+	 * Job is blocked by hold.
 	 */
 	HOLD ("Hold"),
-	/**
-	 * Job temporarily blocked.
-	 */
 	DEFERRED ("Deferred"),
-	SUBMIT_ERROR ("SubmitErr"),
 	/**
 	 * Job canceled after partial execution.
 	 */
 	VACATED ("Vacated"),
-	NOT_RUN ("NotRun"),
 	/**
 	 * Job not eligible for execution.
 	 */
 	NOT_QUEUED ("NotQueued"),
 	UNKNOWN ("Unknown"),
 	/**
-	 * Job has a batch hold in place.
-	 */
-	BATCH_HOLD ("BatchHold"),
-	/**
-	 * Job has a user hold in place.
-	 */
-	USER_HOLD ("UserHold"),
-	/**
-	 * Job has a system hold in place.
-	 */
-	SYSTEM_HOLD ("SystemHold"),
-	/**
 	 * Staging of input/output data is currently underway.
 	 */
 	STAGING ("Staging"),
-	/**
-	 * All staging prerequisites are satisfied - waiting for remote resource manager to start.
-	 */
-	STAGED ("Staged"),
 	SUSPENDED ("Suspended"),
-	LOST ("Lost"),
-	/**
-	 * Resources are selected and are being prepared for job.
-	 */
-	ALLOCATING ("Allocating"),
 	/**
 	 * State used only by database for job that is idle but has a block reason.
 	 */
@@ -82,7 +56,7 @@ public enum JobReportState {
 	/**
 	 * The list of states that are "completed" states, meaning the job has errored or has been completed/removed.
 	 */
-	public static final List<JobReportState> completedStates = Arrays.asList(REMOVED, COMPLETED, SUBMIT_ERROR, VACATED);
+	public static final List<JobReportState> completedStates = Arrays.asList(REMOVED, COMPLETED, VACATED);
 	/**
 	 * The list of states that are "active" states, meaning the job does not have an error and has not been completed/removed.
 	 */
