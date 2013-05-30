@@ -1,6 +1,6 @@
 contributor(context()) {
 	// Testing hints
-	classType.getAnnotations("com.adaptc.mws.plugins.testing.TestFor").each {
+	classType?.getAnnotations("com.adaptc.mws.plugins.testing.TestFor").each {
 		String className = it?.findAttributeValue("value")?.getClassNameText()
 		if (className.endsWith("Plugin")) {
 			property name:"plugin", type:className, doc:"The plugin under test"
