@@ -103,7 +103,8 @@ public interface IPluginEventService {
 	 * @param objects A list of objects associated with the event, may be null or empty
 	 */
 	public void createEvent(Severity severity, EscalationLevel escalationLevel, int eventCode, String eventType,
-							String originSuffix, String message, List<String> arguments, List<AssociatedObject> objects);
+							String originSuffix, String message, List<String> arguments, List<AssociatedObject> objects)
+			throws Exception;
 
 	/**
 	 * Same as {@link #createEvent(Severity, EscalationLevel, int, String, String, String, List, List)} but with
@@ -120,7 +121,8 @@ public interface IPluginEventService {
 	 */
 	public void createEvent(Date eventDate, Severity severity, EscalationLevel escalationLevel, int eventCode,
 							String eventType, String originSuffix, String message, List<String> arguments,
-							List<AssociatedObject> objects);
+							List<AssociatedObject> objects)
+			throws Exception;
 
 	/**
 	 * Creates an event using a {@link IPluginEvent} value with the instance specific information of arguments and
@@ -130,7 +132,8 @@ public interface IPluginEventService {
 	 * @param arguments The arguments of the event message, may be null or empty
 	 * @param objects A list of objects associated with the event, may be null or empty
 	 */
-	public void createEvent(IPluginEvent pluginEvent, List<String> arguments, List<AssociatedObject> objects);
+	public void createEvent(IPluginEvent pluginEvent, List<String> arguments, List<AssociatedObject> objects)
+			throws Exception;
 
 	/**
 	 * Same as {@link #createEvent(IPluginEvent, List, List)} but with a specified event date.
@@ -140,7 +143,8 @@ public interface IPluginEventService {
 	 * @param objects A list of objects associated with the event, may be null or empty
 	 */
 	public void createEvent(Date eventDate, IPluginEvent pluginEvent, List<String> arguments,
-							List<AssociatedObject> objects);
+							List<AssociatedObject> objects)
+			throws Exception;
 
 	/**
 	 * Creates a notification condition with the specified properties and using the current date as the observed
@@ -151,7 +155,8 @@ public interface IPluginEventService {
 	 * @param details Arbitrary details associated with the notification, may be null or empty
 	 */
 	public void createNotificationCondition(EscalationLevel escalationLevel, String message,
-											AssociatedObject associatedObject, Map<String, String> details);
+											AssociatedObject associatedObject, Map<String, String> details)
+			throws Exception;
 
 	/**
 	 * Creates a notification condition with the specified properties and using the current date as the observed date.
@@ -163,7 +168,8 @@ public interface IPluginEventService {
 	 */
 	public void createNotificationCondition(EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details,
-											long expirationDuration);
+											long expirationDuration)
+			throws Exception;
 
 	/**
 	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map)} but with a
@@ -174,7 +180,8 @@ public interface IPluginEventService {
 	 * @param details Arbitrary details associated with the notification, may be null or empty
 	 */
 	public void createNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
-											AssociatedObject associatedObject, Map<String, String> details);
+											AssociatedObject associatedObject, Map<String, String> details)
+			throws Exception;
 
 	/**
 	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map, long)} but
@@ -188,5 +195,6 @@ public interface IPluginEventService {
 	 */
 	public void createNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details,
-											long expirationDuration);
+											long expirationDuration)
+			throws Exception;
 }
