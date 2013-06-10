@@ -93,7 +93,7 @@ public interface IPluginEventService {
 
 	/**
 	 * Creates an event with the specified properties and using the current date as the event date.
-	 * @param severity
+	 * @param severity The severity of the event
 	 * @param escalationLevel The escalation level of the event
 	 * @param eventCode The unique (for each plugin with a correct plugin component code) code of the event
 	 * @param eventType The event type, such as "Node Modify" or "VM Migrate", may be null
@@ -108,6 +108,7 @@ public interface IPluginEventService {
 	 * Same as {@link #createEvent(Severity, EscalationLevel, int, String, String, List, List)} but with a specified
 	 * event date.
 	 * @param eventDate The date that the event occurred
+	 * @param severity The severity of the event
 	 * @param escalationLevel The escalation level of the event
 	 * @param eventCode The unique (for each plugin with a correct plugin component code) code of the event
 	 * @param eventType The event type, such as "Node Modify" or "VM Migrate", may be null
@@ -115,8 +116,8 @@ public interface IPluginEventService {
 	 * @param arguments The arguments of the event message, may be null or empty
 	 * @param objects A list of objects associated with the event, may be null or empty
 	 */
-	public void createEvent(Date eventDate, EscalationLevel escalationLevel, int eventCode, String eventType,
-							String message, List<String> arguments, List<AssociatedObject> objects);
+	public void createEvent(Date eventDate, Severity severity, EscalationLevel escalationLevel, int eventCode,
+							String eventType, String message, List<String> arguments, List<AssociatedObject> objects);
 
 	/**
 	 * Creates an event using a {@link IPluginEvent} value with the instance specific information of arguments and
