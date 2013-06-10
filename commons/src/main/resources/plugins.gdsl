@@ -1,5 +1,9 @@
+/**
+ * This script adds support for IntelliJ IDEA to add properties/methods/constructors where these are
+ * dynamically injected.
+ */
 contributor(context()) {
-	// Testing hints
+	// Testing
 	classType?.getAnnotations("com.adaptc.mws.plugins.testing.TestFor").each {
 		String className = it?.findAttributeValue("value")?.getClassNameText()
 		if (className.endsWith("Plugin")) {
@@ -13,5 +17,22 @@ contributor(context()) {
 			property name:"component", type:className, doc:"The component under test"
 			delegatesTo(findClass("com.adaptc.mws.plugins.testing.ComponentUnitTestMixin").getNavigationElement())
 		}
+	}
+
+	// Event enumerations
+	if (classType.hasAnnotation("com.adaptc.mws.plugins.EventEnumeration")) {
+		property name:"eventName", type:String.name
+		property name:"severity", type:"com.adaptc.mws.plugins.IPluginEventService.Severity"
+		property name:"escalationLevel", type:"com.adaptc.mws.plugins.IPluginEventService.EscalationLevel"
+		method name:"getEventCode", type:"int"
+		method name:"getEventType", type:String.name
+		method name:"getOriginSuffix", type:String.name
+		method name:"getMessageCode", type:String.name
+		method name:"getCommentCode", type:String.name
+		// This doesn't seem to work, may be because it's an enum and not a regular class
+		// See http://youtrack.jetbrains.com/issue/IDEA-72458
+		constructor params:[eventName:String.name,
+				severity:"com.adaptc.mws.plugins.IPluginEventService.Severity",
+				escalationLevel:"com.adaptc.mws.plugins.IPluginEventService.EscalationLevel"]
 	}
 }

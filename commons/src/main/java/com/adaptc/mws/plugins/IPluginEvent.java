@@ -13,10 +13,18 @@ public interface IPluginEvent {
 	public static String ORIGIN_DELIMITER = "/";
 
 	/**
-	 * The i18n message code to use for the event, which may optionally take arguments.
+	 * The i18n message code to use for the message of the event, which may optionally take arguments.
 	 * @return The i18n message code for the message describing the event.
 	 */
 	public String getMessageCode();
+
+	/**
+	 * The i18n message code to use for the comments on the event.  The comments are not used when creating new
+	 * events but may be used in documentation describing the event dictionary entry and why it commonly occurs.
+	 * This i18n message should not use any arguments or information relating to a specific instance, such as
+	 * associated objects.
+	 */
+	public String getCommentCode();
 
 	/**
 	 * The severity of the event.
@@ -50,7 +58,7 @@ public interface IPluginEvent {
 	 * "MyEventsEnum/EVENT1" (representing the enum name and the enum value name), the full origin used in creating
 	 * the event with the IPluginEventService would be "MWS/plugins/MyExample/myExample1/MyEventsEnum/EVENT1".  If the
 	 * leading slash is included, it will be trimmed.
-	 * @return The suffix of the origin to use when creating an event
+	 * @return The suffix of the origin to use when creating an event, or null to not use a suffix.
 	 * @see #ORIGIN_DELIMITER
 	 */
 	public String getOriginSuffix();
