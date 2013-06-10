@@ -119,6 +119,26 @@ public interface IPluginEventService {
 							String message, List<String> arguments, List<AssociatedObject> objects);
 
 	/**
+	 * Creates an event using a {@link IPluginEvent} value with the instance specific information of arguments and
+	 * associated objects.  The arguments will be used in combination with the message code to fully resolve
+	 * the message when creating the actual event.  The current date will be used as the event date.
+	 * @param pluginEvent The non-null {@link IPluginEvent} value specifying the attributes of the event
+	 * @param arguments The arguments of the event message, may be null or empty
+	 * @param objects A list of objects associated with the event, may be null or empty
+	 */
+	public void createEvent(IPluginEvent pluginEvent, List<String> arguments, List<AssociatedObject> objects);
+
+	/**
+	 * Same as {@link #createEvent(IPluginEvent, List, List)} but with a specified event date.
+	 * @param eventDate The date that the event occurred
+	 * @param pluginEvent The non-null {@link IPluginEvent} value specifying the attributes of the event
+	 * @param arguments The arguments of the event message, may be null or empty
+	 * @param objects A list of objects associated with the event, may be null or empty
+	 */
+	public void createEvent(Date eventDate, IPluginEvent pluginEvent, List<String> arguments,
+							List<AssociatedObject> objects);
+
+	/**
 	 * Creates a notification condition with the specified properties and using the current date as the observed
 	 * date and 2x the polling interval of the plugin as the expirationDuration.
 	 * @param escalationLevel The escalation level of the notification
