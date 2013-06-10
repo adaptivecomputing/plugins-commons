@@ -1,9 +1,6 @@
 archivesBaseName = "plugins-testing"
 
-apply plugin:'groovy'
-
 dependencies {
-	groovy localGroovy()
 	compile 'junit:junit:4.8.1'
 	compile 'commons-lang:commons-lang:2.6'
 	compile "org.springframework:spring-core:${rootProject.'version.spring'}"
