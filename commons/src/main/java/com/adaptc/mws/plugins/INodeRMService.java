@@ -6,8 +6,8 @@ import java.util.List;
  * The node resource management service consists of methods to retrieve
  * and save node reports.  These reports are consolidated and returned to Moab.
  * <p/>
- * For more information on how to use this service, see the MWS Quick Reference
- * page on Node RM Service.
+ * For more information on how to use this service, see the MWS User Guide
+ * section on Node RM Service.
  * @author bsaville
  */
 public interface INodeRMService {

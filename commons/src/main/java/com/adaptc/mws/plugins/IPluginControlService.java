@@ -7,8 +7,8 @@ import java.util.List;
  * The control service allows lifecycle management operations to be performed 
  * on plugins.  It also provides methods to create and retrieve plugins.
  * <p/>
- * For more information on how to use this service, see the MWS Quick Reference
- * page on Plugin Control Service.
+ * For more information on how to use this service, see the MWS User Guide
+ * section on Plugin Control Service.
  * @author bsaville
  */
 public interface IPluginControlService {

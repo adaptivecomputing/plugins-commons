@@ -36,8 +36,8 @@ import net.sf.json.JSONArray;
  * }
  * </pre>
  * <p/>
- * For more information on how to use this service, see the MWS Quick Reference
- * page on Moab Rest Service.
+ * For more information on how to use this service, see the MWS User Guide
+ * section on Moab Rest Service.
  * @author bsaville
  */
 public interface IMoabRestService {

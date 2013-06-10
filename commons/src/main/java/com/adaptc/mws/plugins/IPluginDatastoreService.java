@@ -9,8 +9,8 @@ import java.util.List;
  * not designed to store Moab data such as nodes, jobs, or virtual machines, 
  * but custom, arbitrary data pertinent only to the individual plugin.
  * <p/>
- * For more information on how to use this service, see the MWS Quick Reference
- * page on Plugin Datastore Service.
+ * For more information on how to use this service, see the MWS User Guide
+ * section on Plugin Datastore Service.
  * @author bsaville
  */
 public interface IPluginDatastoreService {
