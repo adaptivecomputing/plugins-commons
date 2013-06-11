@@ -168,7 +168,7 @@ public interface IPluginEventService {
 	 */
 	public void createNotificationCondition(EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details,
-											long expirationDuration)
+											Long expirationDuration)
 			throws Exception;
 
 	/**
@@ -184,7 +184,7 @@ public interface IPluginEventService {
 			throws Exception;
 
 	/**
-	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map, long)} but
+	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map, Long)} but
 	 * with a specified observed date.
 	 * @param observedDate The date that the notification condition was observed
 	 * @param escalationLevel The escalation level of the notification
@@ -195,6 +195,6 @@ public interface IPluginEventService {
 	 */
 	public void createNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details,
-											long expirationDuration)
+											Long expirationDuration)
 			throws Exception;
 }
