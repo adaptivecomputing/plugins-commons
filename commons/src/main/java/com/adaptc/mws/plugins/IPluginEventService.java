@@ -25,9 +25,21 @@ public interface IPluginEventService {
 	 * Determines the severity of the event.
 	 */
 	public enum Severity {
+		/**
+		 * Represents an informational event
+		 */
 		INFO(0x0),
+		/**
+		 * Represents an warning event
+		 */
 		WARN(0x1),
+		/**
+		 * Represents an error event
+		 */
 		ERROR(0x2),
+		/**
+		 * Represents a fatal event
+		 */
 		FATAL(0x3);
 
 		private int code;
@@ -45,9 +57,21 @@ public interface IPluginEventService {
 	 * Determines who would be concerned with this event or notification condition.
 	 */
 	public enum EscalationLevel {
+		/**
+		 * For typical users
+		 */
 		USER(0x0),
+		/**
+		 * For power users and users
+		 */
 		POWER_USER(0x1),
+		/**
+		 * For administrators, power users, and users
+		 */
 		ADMIN(0x2),
+		/**
+		 * For internal events only, may <b>NOT</b> be used for notification conditions.
+		 */
 		INTERNAL(0x3);
 
 		private int code;
@@ -149,7 +173,7 @@ public interface IPluginEventService {
 	/**
 	 * Creates a notification condition with the specified properties and using the current date as the observed
 	 * date and no expiration duration.
-	 * @param escalationLevel The escalation level of the notification
+	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
@@ -160,7 +184,7 @@ public interface IPluginEventService {
 
 	/**
 	 * Creates a notification condition with the specified properties and using the current date as the observed date.
-	 * @param escalationLevel The escalation level of the notification
+	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
@@ -174,7 +198,7 @@ public interface IPluginEventService {
 	/**
 	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map)} but with a
 	 * specified observed date.
-	 * @param escalationLevel The escalation level of the notification
+	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
@@ -187,7 +211,7 @@ public interface IPluginEventService {
 	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map, Long)} but
 	 * with a specified observed date.
 	 * @param observedDate The date that the notification condition was observed
-	 * @param escalationLevel The escalation level of the notification
+	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
