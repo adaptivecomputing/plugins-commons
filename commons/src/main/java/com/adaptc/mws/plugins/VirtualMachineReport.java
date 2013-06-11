@@ -1,9 +1,8 @@
 package com.adaptc.mws.plugins;
 
-import java.text.ParseException;
 import java.util.Date;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A VM report consists of values for all of the known, changed properties for a specific VM
@@ -32,7 +31,7 @@ public class VirtualMachineReport {
 	/**
 	 * The date that the report was made or for which the report is current.  This will be
 	 * set to the current date and time if not provided.  This may also be set as a string
-	 * which will use {@link PluginConstants#STANDARD_DATE_FORMAT} to parse into a date.
+	 * which will use {@link PluginConstants#STANDARD_DATE_TIME_FORMATTER} to parse into a date.
 	 */
 	private Date timestamp;
 	/**
@@ -143,8 +142,8 @@ public class VirtualMachineReport {
 	 */
 	public void setTimestamp(String timestamp) {
 		try {
-			this.timestamp = PluginConstants.STANDARD_DATE_FORMAT.parse(timestamp);
-		} catch(ParseException e) {
+			this.timestamp = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(timestamp).toDate();
+		} catch(IllegalArgumentException e) {
 			this.timestamp = null;
 		} catch(NullPointerException e) {
 			this.timestamp = null;

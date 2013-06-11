@@ -1,5 +1,8 @@
 package com.adaptc.mws.plugins;
 
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Arrays;
@@ -96,7 +99,9 @@ public class PluginConstants {
 	/**
 	 * The standard date format String to be used when communicating with Moab Web Services.
 	 * This may be used to parse out dates from requests in custom web services.
+	 * @deprecated Used only by deprecated STANDARD_DATE_FORMAT.
 	 */
+	@Deprecated
 	private static final String STANDARD_DATE_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss z";
 
 	/**
@@ -106,9 +111,28 @@ public class PluginConstants {
 	 * <code>
 	 *	Date date = STANDARD_DATE_FORMAT.parse("2012-01-01 23:11:24 MDT")
 	 * </code>
+	 * @deprecated Not thread-safe. Use STANDARD_DATE_TIME_FORMATTER instead.
 	 */
+	@Deprecated
 	public static final SimpleDateFormat STANDARD_DATE_FORMAT =
 			new SimpleDateFormat(STANDARD_DATE_FORMAT_STRING);
+
+	/**
+	 * The standard date format String to be used when communicating with Moab Web Services.
+	 * This may be used to parse out dates from requests in custom web services.
+	 */
+	private static final String STANDARD_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss ZZZ";
+
+	/**
+	 * The standard date/time formatter to be used when communicating with Moab Web Services.
+	 * This may be used to parse out dates from requests in custom web services.
+	 * <p/>
+	 * <code>
+	 *	Date date = STANDARD_DATE_TIME_FORMATTER.parseDateTime("2012-01-01 23:11:24 UTC").toDate();
+	 * </code>
+	 */
+	public static final DateTimeFormatter STANDARD_DATE_TIME_FORMATTER =
+			DateTimeFormat.forPattern(STANDARD_DATE_TIME_FORMAT_STRING).withZoneUTC();
 
 	/**
 	 * The prefix (including the period) used for all loggers configured for plugin types

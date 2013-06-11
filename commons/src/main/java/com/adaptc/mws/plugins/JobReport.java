@@ -1,6 +1,5 @@
 package com.adaptc.mws.plugins;
 
-import java.text.ParseException;
 import java.util.*;
 
 /**
@@ -30,7 +29,7 @@ public class JobReport {
 	/**
 	 * The date that the report was made or for which the report is current.  This will be
 	 * set to the current date and time if not provided.  This may also be set as a string
-	 * which will use {@link PluginConstants#STANDARD_DATE_FORMAT} to parse into a date.
+	 * which will use {@link PluginConstants#STANDARD_DATE_TIME_FORMATTER} to parse into a date.
 	 */
 	private Date timestamp;
 	/**
@@ -219,8 +218,8 @@ public class JobReport {
 	 */
 	public void setTimestamp(String timestamp) {
 		try {
-			this.timestamp = PluginConstants.STANDARD_DATE_FORMAT.parse(timestamp);
-		} catch(ParseException e) {
+			this.timestamp = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(timestamp).toDate();
+		} catch(IllegalArgumentException e) {
 			this.timestamp = null;
 		} catch(NullPointerException e) {
 			this.timestamp = null;
@@ -279,8 +278,8 @@ public class JobReport {
 	 */
 	public void setCompletedDate(String completionDate) {
 		try {
-			this.completedDate = PluginConstants.STANDARD_DATE_FORMAT.parse(completionDate);
-		} catch(ParseException e) {
+			this.completedDate = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(completionDate).toDate();
+		} catch(IllegalArgumentException e) {
 			this.completedDate = null;
 		} catch(NullPointerException e) {
 			this.completedDate = null;
@@ -303,8 +302,8 @@ public class JobReport {
 	 */
 	public void setDeadlineDate(String latestCompletedDateRequested) {
 		try {
-			this.deadlineDate = PluginConstants.STANDARD_DATE_FORMAT.parse(latestCompletedDateRequested);
-		} catch(ParseException e) {
+			this.deadlineDate = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(latestCompletedDateRequested).toDate();
+		} catch(IllegalArgumentException e) {
 			this.deadlineDate = null;
 		} catch(NullPointerException e) {
 			this.deadlineDate = null;
@@ -497,8 +496,8 @@ public class JobReport {
 	 */
 	public void setSubmitDate(String submitDate) {
 		try {
-			this.submitDate = PluginConstants.STANDARD_DATE_FORMAT.parse(submitDate);
-		} catch(ParseException e) {
+			this.submitDate = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(submitDate).toDate();
+		} catch(IllegalArgumentException e) {
 			this.submitDate = null;
 		} catch(NullPointerException e) {
 			this.submitDate = null;
@@ -545,8 +544,8 @@ public class JobReport {
 	 */
 	public void setEarliestStartDate(String earliestStartDate) {
 		try {
-			this.earliestStartDate = PluginConstants.STANDARD_DATE_FORMAT.parse(earliestStartDate);
-		} catch(ParseException e) {
+			this.earliestStartDate = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(earliestStartDate).toDate();
+		} catch(IllegalArgumentException e) {
 			this.earliestStartDate = null;
 		} catch(NullPointerException e) {
 			this.earliestStartDate = null;
@@ -569,8 +568,8 @@ public class JobReport {
 	 */
 	public void setStartDate(String startDate) {
 		try {
-			this.startDate = PluginConstants.STANDARD_DATE_FORMAT.parse(startDate);
-		} catch(ParseException e) {
+			this.startDate = PluginConstants.STANDARD_DATE_TIME_FORMATTER.parseDateTime(startDate).toDate();
+		} catch(IllegalArgumentException e) {
 			this.startDate = null;
 		} catch(NullPointerException e) {
 			this.startDate = null;
