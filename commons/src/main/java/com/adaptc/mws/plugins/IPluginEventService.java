@@ -171,44 +171,45 @@ public interface IPluginEventService {
 			throws Exception;
 
 	/**
-	 * Creates a notification condition with the specified properties and using the current date as the observed
-	 * date and no expiration duration.
+	 * Creates or updates a notification condition with the specified properties and using the current date as the
+	 * observed date and no expiration duration.
 	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
 	 */
-	public void createNotificationCondition(EscalationLevel escalationLevel, String message,
+	public void updateNotificationCondition(EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details)
 			throws Exception;
 
 	/**
-	 * Creates a notification condition with the specified properties and using the current date as the observed date.
+	 * Creates or updates a notification condition with the specified properties and using the current date as the
+	 * observed date.
 	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
 	 * @param expirationDuration The duration before the notification is marked as expired if not observed again
 	 */
-	public void createNotificationCondition(EscalationLevel escalationLevel, String message,
+	public void updateNotificationCondition(EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details,
 											Long expirationDuration)
 			throws Exception;
 
 	/**
-	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map)} but with a
+	 * Same as {@link #updateNotificationCondition(EscalationLevel, String, AssociatedObject, Map)} but with a
 	 * specified observed date.
 	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
 	 * @param details Arbitrary details associated with the notification, may be null or empty
 	 */
-	public void createNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
+	public void updateNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details)
 			throws Exception;
 
 	/**
-	 * Same as {@link #createNotificationCondition(EscalationLevel, String, AssociatedObject, Map, Long)} but
+	 * Same as {@link #updateNotificationCondition(EscalationLevel, String, AssociatedObject, Map, Long)} but
 	 * with a specified observed date.
 	 * @param observedDate The date that the notification condition was observed
 	 * @param escalationLevel The escalation level of the notification, may not be INTERNAL
