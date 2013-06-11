@@ -148,7 +148,7 @@ public interface IPluginEventService {
 
 	/**
 	 * Creates a notification condition with the specified properties and using the current date as the observed
-	 * date and 2x the polling interval of the plugin as the expirationDuration.
+	 * date and no expiration duration.
 	 * @param escalationLevel The escalation level of the notification
 	 * @param message The full resolved message describing the notification
 	 * @param associatedObject The object associated with the notification, such as Node "node1", may be null
