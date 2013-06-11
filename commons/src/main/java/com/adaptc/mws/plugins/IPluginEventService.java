@@ -218,7 +218,7 @@ public interface IPluginEventService {
 	 * @param details Arbitrary details associated with the notification, may be null or empty
 	 * @param expirationDuration The duration before the notification is marked as expired if not observed again
 	 */
-	public void createNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
+	public void updateNotificationCondition(Date observedDate, EscalationLevel escalationLevel, String message,
 											AssociatedObject associatedObject, Map<String, String> details,
 											Long expirationDuration)
 			throws Exception;
