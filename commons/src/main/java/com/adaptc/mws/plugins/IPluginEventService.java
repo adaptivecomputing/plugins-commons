@@ -113,6 +113,11 @@ public interface IPluginEventService {
 			this.type = map.get("type");
 			this.id = map.get("id");
 		}
+
+		@Override
+		public String toString() {
+			return "[type: "+type+", id: "+id+"]";
+		}
 	}
 
 	/**
