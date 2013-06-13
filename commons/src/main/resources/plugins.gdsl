@@ -35,4 +35,13 @@ contributor(context()) {
 				severity:"com.adaptc.mws.plugins.IPluginEventService.Severity",
 				escalationLevel:"com.adaptc.mws.plugins.IPluginEventService.EscalationLevel"]
 	}
+
+	if (classType?.name?.endsWith("Plugin")) {
+		property name:"config", type:Map.name
+		property name:"appConfig", type:ConfigObject.name
+		property name:"log", type:"org.apache.commons.logging.Log"
+	}
+	if (classType?.name?.endsWith("Translator")) {
+		property name:"log", type:"org.apache.commons.logging.Log"
+	}
 }
