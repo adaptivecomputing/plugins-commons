@@ -53,6 +53,13 @@ public class NodeReport {
 	 */
 	private String image;
 	/**
+	 * If non-null, determines whether the node is added to the migration exclusion list or not
+	 * when reported.  A true value disables migrations to or from the node, while a false value
+	 * enables them.  A null value will use the lists configured in the migration exclusion
+	 * list global policy.
+	 */
+	private Boolean migrationDisabled;
+	/**
 	 * The node's partition.
 	 */
 	private String partition;
@@ -188,6 +195,18 @@ public class NodeReport {
 	 */
 	public void setImage(String image) {
 		this.image = image;
+	}
+	/**
+	 * @see #migrationDisabled
+	 */
+	public Boolean getMigrationDisabled() {
+		return migrationDisabled;
+	}
+	/**
+	 * @see #migrationDisabled
+	 */
+	public void setMigrationDisabled(Boolean migrationDisabled) {
+		this.migrationDisabled = migrationDisabled;
 	}
 	/**
 	 * @see #partition

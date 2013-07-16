@@ -40,6 +40,13 @@ public class VirtualMachineReport {
 	 */
 	private String image;
 	/**
+	 * If non-null, determines whether the VM is added to the migration exclusion list or not
+	 * when reported.  A true value disables migrations of the VM, while a false value
+	 * enables them.  A null value will use the lists configured in the migration exclusion
+	 * list global policy.
+	 */
+	private Boolean migrationDisabled;
+	/**
 	 * The name of the host (hypervisor/node) that the VM resides on.
 	 */
 	private String host;
@@ -162,6 +169,18 @@ public class VirtualMachineReport {
 	 */
 	public void setImage(String image) {
 		this.image = image;
+	}
+	/**
+	 * @see #migrationDisabled
+	 */
+	public Boolean getMigrationDisabled() {
+		return migrationDisabled;
+	}
+	/**
+	 * @see #migrationDisabled
+	 */
+	public void setMigrationDisabled(Boolean migrationDisabled) {
+		this.migrationDisabled = migrationDisabled;
 	}
 	/**
 	 * @see #host
