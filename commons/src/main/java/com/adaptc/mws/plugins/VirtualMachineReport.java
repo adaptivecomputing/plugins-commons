@@ -1,8 +1,6 @@
 package com.adaptc.mws.plugins;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A VM report consists of values for all of the known, changed properties for a specific VM
@@ -39,6 +37,11 @@ public class VirtualMachineReport {
 	 * system information.
 	 */
 	private String image;
+	/**
+	 * The names of the images that this VM can be provisioned as.  This relates to the image name
+	 * in the MWS Image Catalog.
+	 */
+	private List<String> imagesAvailable = new ArrayList<String>();
 	/**
 	 * If non-null, determines whether the VM is added to the migration exclusion list or not
 	 * when reported.  A true value disables migrations of the VM, while a false value
@@ -169,6 +172,18 @@ public class VirtualMachineReport {
 	 */
 	public void setImage(String image) {
 		this.image = image;
+	}
+	/**
+	 * @see #imagesAvailable
+	 */
+	public List<String> getImagesAvailable() {
+		return imagesAvailable;
+	}
+	/**
+	 * @see #imagesAvailable
+	 */
+	public void setImagesAvailable(List<String> imagesAvailable) {
+		this.imagesAvailable = imagesAvailable;
 	}
 	/**
 	 * @see #migrationDisabled
