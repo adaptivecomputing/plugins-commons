@@ -20,6 +20,10 @@ subprojects { proj ->
 	apply plugin:'eclipse'
 	apply plugin:'idea'
 
+	// Replace version snapshot with order number
+	if (proj.version.contains("-SNAPSHOT"))
+		proj.version = proj.version.replace("-SNAPSHOT", "-"+("git rev-list HEAD".execute().text.readLines().size()))
+
 	configurations {
 		deployerJars
 	}
