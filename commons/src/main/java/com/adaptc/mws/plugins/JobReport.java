@@ -33,6 +33,16 @@ public class JobReport {
 	 */
 	private Date timestamp;
 	/**
+	 * If true, this report will be considered a "slave" report.  If all reports for an object are only "slave" reports,
+	 * MWS will not report the object to Moab Workload Manager.  Otherwise (if at least one report has this value set
+	 * to false), the object will be reported as normal.  By default, all reports are considered "master" reports and
+	 * have this field set to false.
+	 * <p/>
+	 * This enables functionality where additional data is wished to be reported without reporting the object itself
+	 * if it has been deleted, no longer exists, etc.
+	 */
+	private boolean slaveReport = false;
+	/**
 	 * The job's account.
 	 */
 	private String account;
@@ -220,6 +230,18 @@ public class JobReport {
 		} catch(NullPointerException e) {
 			this.timestamp = null;
 		}
+	}
+	/**
+	 * @see #slaveReport
+	 */
+	public boolean getSlaveReport() {
+		return slaveReport;
+	}
+	/**
+	 * @see #slaveReport
+	 */
+	public void setSlaveReport(boolean slaveReport) {
+		this.slaveReport = slaveReport;
 	}
 	/**
 	 * @see #account
