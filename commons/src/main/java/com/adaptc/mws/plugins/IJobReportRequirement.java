@@ -10,6 +10,16 @@ import java.util.List;
  */
 public interface IJobReportRequirement {
 	/**
+	 * Retrieves the required image for the job, this relates to the image name field in the MWS Image Catalog.
+	 */
+	public String getImage();
+
+	/**
+	 * Sets the required image for the job, this relates to the image name field in the MWS Image Catalog.
+	 */
+	public void setImage(String image);
+
+	/**
 	 * Retrieves the minimum number of nodes called for by the requirement.
 	 * @return The current value
 	 */

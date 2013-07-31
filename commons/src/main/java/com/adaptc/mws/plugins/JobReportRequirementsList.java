@@ -35,6 +35,18 @@ public class JobReportRequirementsList extends ArrayList<JobReportRequirement> i
 	/**
 	 * {@inheritDoc}
 	 */
+	public String getImage() {
+		return getFirst().getImage();
+	}
+	/**
+	 * {@inheritDoc}
+	 */
+	public void setImage(String image) {
+		getFirst().setImage(image);
+	}
+	/**
+	 * {@inheritDoc}
+	 */
 	public Integer getNodeCount() {
 		return getFirst().getNodeCount();
 	}

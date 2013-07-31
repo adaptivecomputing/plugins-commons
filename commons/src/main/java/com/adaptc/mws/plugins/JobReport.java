@@ -117,10 +117,6 @@ public class JobReport {
 	 */
 	private String reservationRequested;
 	/**
-	 * The required image for the job, this relates to the image name field in the MWS Image Catalog.
-	 */
-	private String image;
-	/**
 	 * The job's earliest start date.
 	 */
 	private Date earliestStartDate;
@@ -514,18 +510,6 @@ public class JobReport {
 	 */
 	public void setReservationRequested(String reservationRequested) {
 		this.reservationRequested = reservationRequested;
-	}
-	/**
-	 * @see #image
-	 */
-	public String getImage() {
-		return image;
-	}
-	/**
-	 * @see #image
-	 */
-	public void setImage(String image) {
-		this.image = image;
 	}
 	/**
 	 * @see #earliestStartDate

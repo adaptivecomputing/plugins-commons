@@ -9,6 +9,10 @@ import java.util.List;
  */
 public class JobReportRequirement implements IJobReportRequirement {
 	/**
+	 * @see #getImage()
+	 */
+	private String image;
+	/**
 	 * @see #getNodeCount()
 	 */
 	private Integer nodeCount;
@@ -37,6 +41,18 @@ public class JobReportRequirement implements IJobReportRequirement {
 	 */
 	private ReportResourceMap resourcesPerTask = new ReportResourceMap();
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getImage() {
+		return image;
+	}
+	/**
+	 * {@inheritDoc}
+	 */
+	public void setImage(String image) {
+		this.image = image;
+	}
 	/**
 	 * {@inheritDoc}
 	 */
