@@ -47,13 +47,22 @@ subprojects { proj ->
 	sourceCompatibility = "1.6"
 	targetCompatibility = "1.6"
 
-	manifest.mainAttributes(
-			"Built-By": System.properties['user.name'],
-			"Created-By": System.properties['java.vm.version'] + " (" + System.properties['java.vm.vendor'] + ")",
-			"Implementation-Title": "Adaptive Computing Plugins Commons - "+proj.archivesBaseName,
-			"Implementation-Version": proj.version,
-			"Implementation-Vendor": 'adaptivecomputing.com')
-	
+	jar.doLast {
+		ant.jar(destfile:archivePath, update:true) {
+			delegate.manifest {
+				attribute(name: "Built-By", value: System.properties['user.name'])
+				attribute(name: "Created-By",
+						value: System.properties['java.vm.version'] + " (" + System.properties['java.vm.vendor'] + ")")
+				attribute(name: "Implementation-Title", value: "Adaptive Computing Plugins Commons - "+proj.archivesBaseName)
+				attribute(name: "Implementation-Version", value: proj.version)
+				attribute(name: "Implementation-Vendor", value: "adaptivecomputing.com")
+				attribute(name: "Implementation-Build", value: System.env["BUILD_NUMBER"] ?: "0")
+				attribute(name: "Implementation-Build-Date", value: System.env["BUILD_ID"] ?: new Date())
+				attribute(name: "Implementation-Revision", value: System.env["GIT_COMMIT"] ?: "none")
+			}
+		}
+	}
+
 	task sourcesJar(type: Jar) {
 		classifier = 'sources'
 		from sourceSets.main.allSource
