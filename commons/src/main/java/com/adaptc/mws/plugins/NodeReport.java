@@ -35,7 +35,7 @@ public class NodeReport {
  	 */
 	private boolean slaveReport = false;
 	/**
-	 * The job's resources information.  Note that no null checks are needed to act on the resources.
+	 * The node's resources information.  Note that no null checks are needed to act on the resources.
 	 */
 	private ReportResourceMap resources = new ReportResourceMap();
 	/**
