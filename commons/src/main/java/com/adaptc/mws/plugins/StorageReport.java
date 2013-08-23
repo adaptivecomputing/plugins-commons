@@ -53,6 +53,13 @@ public class StorageReport {
 	 */
 	private List<String> messages = new ArrayList<String>();
 	/**
+	 * If non-null, determines whether the storage resource is added to the migration exclusion list or not
+	 * when reported.  A true value disables migrations to or from the storage resource, while a false value
+	 * enables them.  A null value will use the lists configured in the migration exclusion
+	 * list global policy.
+	 */
+	private Boolean migrationDisabled;
+	/**
 	 * The storage resource's partition.
 	 */
 	private String partition;
@@ -64,6 +71,10 @@ public class StorageReport {
 	 * The storage resource's IPv4 address.
 	 */
 	private String ipAddress;
+	/**
+	 * The current state of the storage resource
+	 */
+	private NodeReportPower power;
 	/**
 	 * The current state of the storage resource.
 	 */
@@ -184,6 +195,18 @@ public class StorageReport {
 		this.features = features;
 	}
 	/**
+	 * @see #migrationDisabled
+	 */
+	public Boolean getMigrationDisabled() {
+		return migrationDisabled;
+	}
+	/**
+	 * @see #migrationDisabled
+	 */
+	public void setMigrationDisabled(Boolean migrationDisabled) {
+		this.migrationDisabled = migrationDisabled;
+	}
+	/**
 	 * @see #partition
 	 */
 	public String getPartition() {
@@ -218,6 +241,25 @@ public class StorageReport {
 	 */
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
+	}
+	/**
+	 * @see #power
+	 */
+	public NodeReportPower getPower() {
+		return power;
+	}
+	/**
+	 * @see #power
+	 */
+	public void setPower(NodeReportPower power) {
+		this.power = power;
+	}
+	/**
+	 * Calls {@link NodeReportPower#parse(String)} to set the {@link #power} field.
+	 * @see #power
+	 */
+	public void setPower(String power) {
+		this.power = NodeReportPower.parse(power);
 	}
 	/**
 	 * @see #state
