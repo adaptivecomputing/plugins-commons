@@ -14,8 +14,7 @@ import java.util.*;
  */
 public class JobReport {
 	/**
-	 * The job's name, this should be lower-case but will automatically
-	 * be converted if it is not in {@link #setName(String)}.
+	 * The job's name.
 	 */
 	private String name;
 	/**
@@ -164,15 +163,11 @@ public class JobReport {
 		return name;
 	}
 	/**
-	 * Sets the unique identifier for the job.  This automatically
-	 * lower-cases the ID.
+	 * Sets the unique identifier for the job, preserving the case specified.
 	 * @see #name
 	 */
 	public void setName(String name) {
-		if (name ==null)
-			this.name = null;
-		else
-			this.name = name.toLowerCase();
+		this.name = name;
 	}
 	/**
 	 * @see #customName

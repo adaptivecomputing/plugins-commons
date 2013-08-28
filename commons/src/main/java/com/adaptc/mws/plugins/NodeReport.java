@@ -14,8 +14,7 @@ import java.util.*;
  */
 public class NodeReport {
 	/**
-	 * The node's name. This should be lower-case, but it will be converted
-	 * automatically if it is not in {@link #setName(String)}.
+	 * The node's name.
 	 */
 	private String name;
 	/**
@@ -120,15 +119,11 @@ public class NodeReport {
 		return name;
 	}
 	/**
-	 * Sets the unique identifier for the node.  This automatically
-	 * lower-cases the ID.
+	 * Sets the unique identifier for the node, preserving the case specified.
 	 * @see #name
 	 */
 	public void setName(String name) {
-		if (name ==null)
-			this.name = null;
-		else
-			this.name = name.toLowerCase();
+		this.name = name;
 	}
 	/**
 	 * Retrieves the set timestamp for the report.  NOTE: If no timestamp is provided by the plugin, the

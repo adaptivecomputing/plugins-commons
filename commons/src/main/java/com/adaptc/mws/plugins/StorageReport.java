@@ -15,8 +15,7 @@ import java.util.*;
  */
 public class StorageReport {
 	/**
-	 * The storage resource's name. This should be lower-case, but it will be converted
-	 * automatically if it is not in {@link #setName(String)}.
+	 * The storage resource's name.
 	 */
 	private String name;
 	/**
@@ -110,15 +109,11 @@ public class StorageReport {
 		return name;
 	}
 	/**
-	 * Sets the unique identifier for the storage resource.  This automatically
-	 * lower-cases the ID.
+	 * Sets the unique identifier for the storage resource, preserving the case specified.
 	 * @see #name
 	 */
 	public void setName(String name) {
-		if (name ==null)
-			this.name = null;
-		else
-			this.name = name.toLowerCase();
+		this.name = name;
 	}
 	/**
 	 * Retrieves the set timestamp for the report.  NOTE: If no timestamp is provided by the plugin, the

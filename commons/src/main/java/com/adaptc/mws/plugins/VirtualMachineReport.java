@@ -14,8 +14,7 @@ import java.util.*;
  */
 public class VirtualMachineReport {
 	/**
-	 * The VM's name. This should be lower-case, but it will be converted
-	 * automatically if it is not in {@link #setName(String)}.
+	 * The VM's name.
 	 */
 	private String name;
 	/**
@@ -100,10 +99,7 @@ public class VirtualMachineReport {
 	 * @see #name
 	 */
 	public void setName(String name) {
-		if (name ==null)
-			this.name = null;
-		else
-			this.name = name.toLowerCase();
+		this.name = name;
 	}
 	/**
 	 * @see #state
