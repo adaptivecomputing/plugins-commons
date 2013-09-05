@@ -159,4 +159,13 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 	public boolean nodePower(List<String> nodes, NodeReportPower state) {
 		throw new UnsupportedOperationException();
 	}
+	/**
+	 * Changes the power state of the specified VM(s).
+	 * @param state The new requested power state of the node(s)
+	 * @param virtualMachines The name(s) of the VM(s) to modify
+	 * @return True if successful, false if an error occurred
+	 */
+	public boolean virtualMachinePower(List<String> virtualMachines, NodeReportPower state) {
+		throw new UnsupportedOperationException();
+	}
 }
