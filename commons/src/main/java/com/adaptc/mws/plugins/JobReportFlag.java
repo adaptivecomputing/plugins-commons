@@ -191,7 +191,11 @@ public enum JobReportFlag {
 	/**
 	 * VM job cannot be migrated.
 	 */
-	NOVMMIGRATE;
+	NOVMMIGRATE,
+    /**
+     * Only purge the job if it completed successfully
+     */
+    PURGEONSUCCESSONLY;
 
 	/**
 	 * Attempts to parse a string and convert it into a corresponding
