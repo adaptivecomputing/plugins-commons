@@ -28,9 +28,9 @@ public enum PluginState {
 	 * stopped it.  Errors could be due to the following reasons:<br>
 	 * <ol>
 	 * <li>An invalid configuration was detected when running the 
-	 * {@link AbstractPlugin#configure} method.
+	 * {@link AbstractPlugin#configure} method.</li>
 	 * <li>An unexpected exception was thrown during an event, such 
-	 * as during polling.
+	 * as during polling.</li>
 	 * </ol>
 	 */
 	ERRORED("Errored");
