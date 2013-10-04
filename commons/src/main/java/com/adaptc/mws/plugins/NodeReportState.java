@@ -52,12 +52,7 @@ public enum NodeReportState {
 	/**
 	 * The state of the node is unknown.
 	 */
-	UNKNOWN("Unknown"),
-
-	/**
-	 * The node is up, but the usage is being determined.
-	 */
-	UP("Up");
+	UNKNOWN("Unknown");
 
 	private String str;
 
