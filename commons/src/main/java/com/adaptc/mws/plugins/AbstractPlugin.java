@@ -129,9 +129,10 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 	 * Submits a new job specified by the properties given.  The first plugin to return a valid ID will cause MWS to
 	 * not call any further plugins for the job submission.
 	 * @param job The job as a map, with field names and structure matching the MWS job API (v2 and greater)
+	 * @param submissionFlags Flags from the Moab submission
 	 * @return A job ID if successful, null or empty string if an error occurred
 	 */
-	public String jobSubmit(Map<String, Object> job) {
+	public String jobSubmit(Map<String, Object> job, String submissionFlags) {
 		throw new UnsupportedOperationException();
 	}
 	/**
