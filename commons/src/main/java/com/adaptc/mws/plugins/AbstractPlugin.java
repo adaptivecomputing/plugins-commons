@@ -126,11 +126,12 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Submits a new job specified by the properties given.
-	 * @param properties The job's properties
-	 * @return True if successful, false if an error occurred
+	 * Submits a new job specified by the properties given.  The first plugin to return a valid ID will cause MWS to
+	 * not call any further plugins for the job submission.
+	 * @param job The job as a map, with field names and structure matching the MWS job API (v2 and greater)
+	 * @return A job ID if successful, null or empty string if an error occurred
 	 */
-	public boolean jobSubmit(Map<String, String> properties) {
+	public String jobSubmit(Map<String, Object> job) {
 		throw new UnsupportedOperationException();
 	}
 	/**
