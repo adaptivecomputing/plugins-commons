@@ -83,9 +83,10 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 	 * Modifies the specified job with the properties given.
 	 * @param properties The properties to modify on the job
 	 * @param jobName The name of the job to modify
+	 * @param modifyMode The modification mode for the operation
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobModify(String jobName, Map<String, Object> properties) {
+	public boolean jobModify(String jobName, Map<String, Object> properties, ModifyMode modifyMode) {
 		throw new UnsupportedOperationException();
 	}
 	/**
@@ -136,9 +137,10 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 	 * Modifies the specified node(s) with the properties given.
 	 * @param properties The properties to modify on the node(s)
 	 * @param nodes The name(s) of the node(s) to modify
+	 * @param modifyMode The modification mode for the operation
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean nodeModify(List<String> nodes, Map<String, String> properties) {
+	public boolean nodeModify(List<String> nodes, Map<String, String> properties, ModifyMode modifyMode) {
 		throw new UnsupportedOperationException();
 	}
 	/**
