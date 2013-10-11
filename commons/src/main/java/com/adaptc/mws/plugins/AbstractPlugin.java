@@ -80,12 +80,12 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Modifies the specified job(s) with the properties given.
-	 * @param properties The properties to modify on the job(s)
-	 * @param jobs The name(s) of the job(s) to modify
+	 * Modifies the specified job with the properties given.
+	 * @param properties The properties to modify on the job
+	 * @param jobName The name of the job to modify
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobModify(List<String> jobs, Map<String, String> properties) {
+	public boolean jobModify(String jobName, Map<String, Object> properties) {
 		throw new UnsupportedOperationException();
 	}
 	/**
@@ -97,11 +97,11 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Resumes the specified job(s).
-	 * @param jobs The name(s) of the job(s) to resume
+	 * Resumes the specified job.
+	 * @param jobName The name of the job to resume
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobResume(List<String> jobs) {
+	public boolean jobResume(String jobName) {
 		throw new UnsupportedOperationException();
 	}
 	/**
@@ -126,10 +126,10 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 	}
 	/**
 	 * Suspends the specified job.
-	 * @param jobs The name(s) of the job(s)
+	 * @param jobName The name of the job to suspend
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobSuspend(List<String> jobs) {
+	public boolean jobSuspend(String jobName) {
 		throw new UnsupportedOperationException();
 	}
 	/**
