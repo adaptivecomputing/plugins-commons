@@ -80,13 +80,13 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Modifies the specified job with the properties given.
-	 * @param properties The properties to modify on the job
+	 * Modifies the specified job with the attributes given.
+	 * @param attributes The attributes to modify on the job
 	 * @param jobName The name of the job to modify
 	 * @param modifyMode The modification mode for the operation
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobModify(String jobName, Map<String, Object> properties, ModifyMode modifyMode) {
+	public boolean jobModify(String jobName, Map<String, Object> attributes, ModifyMode modifyMode) {
 		throw new UnsupportedOperationException();
 	}
 	/**
@@ -116,7 +116,7 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Submits a new job specified by the properties given.  The first plugin to return a valid ID will cause MWS to
+	 * Submits a new job specified by the attributes given.  The first plugin to return a valid ID will cause MWS to
 	 * not call any further plugins for the job submission.
 	 * @param job The job as a map, with field names and structure matching the MWS job API (v2 and greater)
 	 * @param submissionFlags Flags from the Moab submission
@@ -134,13 +134,13 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Modifies the specified node(s) with the properties given.
-	 * @param properties The properties to modify on the node(s)
+	 * Modifies the specified node(s) with the attributes given.
+	 * @param attributes The attributes to modify on the node(s)
 	 * @param nodes The name(s) of the node(s) to modify
 	 * @param modifyMode The modification mode for the operation
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean nodeModify(List<String> nodes, Map<String, String> properties, ModifyMode modifyMode) {
+	public boolean nodeModify(List<String> nodes, Map<String, String> attributes, ModifyMode modifyMode) {
 		throw new UnsupportedOperationException();
 	}
 	/**
