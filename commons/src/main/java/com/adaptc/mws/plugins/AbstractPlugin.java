@@ -72,11 +72,11 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 
 	// plugin events
 	/**
-	 * Cancels the specified job(s).
-	 * @param jobs The name(s) of the job(s) to cancel
+	 * Cancels the specified job.
+	 * @param jobName The name of the job to requeue
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobCancel(List<String> jobs) {
+	public boolean jobCancel(String jobName) {
 		throw new UnsupportedOperationException();
 	}
 	/**
@@ -89,11 +89,11 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Requeues the specified job(s).
-	 * @param jobs The name(s) of the job(s) to requeue
+	 * Requeues the specified job.
+	 * @param jobName The name of the job to requeue
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobRequeue(List<String> jobs) {
+	public boolean jobRequeue(String jobName) {
 		throw new UnsupportedOperationException();
 	}
 	/**
