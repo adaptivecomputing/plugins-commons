@@ -105,24 +105,13 @@ public abstract class AbstractPlugin extends AbstractPluginInfo {
 		throw new UnsupportedOperationException();
 	}
 	/**
-	 * Starts the specified job with a tasklist and username.
+	 * Starts the specified job with a list of allocated nodes and username.
 	 * @param jobName The name of the job to start
-	 * @param taskList The tasklist of the job
+	 * @param nodes The nodes allocated to the job (also called the task list)
 	 * @param username The user starting the job
 	 * @return True if successful, false if an error occurred
 	 */
-	public boolean jobStart(String jobName, String taskList, String username) {
-		throw new UnsupportedOperationException();
-	}
-	/**
-	 * Starts the specified job with a tasklist, username, and other properties.
-	 * @param jobName The name of the job to start
-	 * @param taskList The tasklist of the job
-	 * @param username The user starting the job
-	 * @param properties The other properties to set when starting the job
-	 * @return True if successful, false otherwise
-	 */
-	public boolean jobStart(String jobName, String taskList, String username, Map<String, String> properties) {
+	public boolean jobStart(String jobName, List<String> nodes, String username) {
 		throw new UnsupportedOperationException();
 	}
 	/**
