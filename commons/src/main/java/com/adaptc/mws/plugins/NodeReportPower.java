@@ -21,13 +21,29 @@ public enum NodeReportPower {
 	 */
 	RESET("Reset"),
 	/**
+	 * The node is running.
+	 */
+	RUNNING("Running"),
+	/**
+	 * The node is in a standby mode.
+	 */
+	STANDBY("Standby"),
+	/**
+	 * The node is in a suspend mode.
+	 */
+	SUSPEND("Suspend"),
+	/**
+	 * The node is in a sleep mode.
+	 */
+	SLEEP("Sleep"),
+	/**
 	 * The node is in a hibernate mode.
 	 */
 	HIBERNATE("Hibernate"),
 	/**
-	 * The node is in a standby mode.
+	 * The node is shutdown.
 	 */
-	STANDBY("Standby");
+	SHUTDOWN("Shutdown");
 
 	private String moabLabel;
 
