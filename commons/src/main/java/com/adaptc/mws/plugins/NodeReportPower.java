@@ -15,19 +15,7 @@ public enum NodeReportPower {
 	/**
 	 * The power is off.
 	 */
-	OFF("Off"),
-	/**
-	 * The power is reset.
-	 */
-	RESET("Reset"),
-	/**
-	 * The node is in a hibernate mode.
-	 */
-	HIBERNATE("Hibernate"),
-	/**
-	 * The node is in a standby mode.
-	 */
-	STANDBY("Standby");
+	OFF("Off");
 
 	private String moabLabel;
 
