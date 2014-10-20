@@ -43,7 +43,7 @@ public enum NodeReportPower {
 	}
 
 	/**
-	 * Returns the actual label used by Moab, i.e. "Reset" for {@link #RESET}.
+	 * Returns the actual label used by Moab, i.e. "Off" for {@link #OFF}.
 	 * @return The actual moab label
 	 */
 	public String toString() {

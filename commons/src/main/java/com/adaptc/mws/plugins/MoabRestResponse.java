@@ -96,7 +96,7 @@ public class MoabRestResponse {
 	/**
 	 * Utility method for converting {@link #data} from a {@link JSON} instance.
 	 * @param json
-	 * @return
+	 * @return A simple object representing the JSON data without the JSON wrapper
 	 */
 	private Object convert(JSON json) {
 		if (json instanceof JSONObject)
@@ -110,7 +110,7 @@ public class MoabRestResponse {
 	/**
 	 * Recursive utility method for converting {@link #data} from a {@link JSON} instance.
 	 * @param jsonObject
-	 * @return
+	 * @return A simple map object representing the JSON data without the JSON wrapper
 	 */
 	private Map convert(JSONObject jsonObject) {
 		Map obj = new HashMap();
@@ -127,7 +127,7 @@ public class MoabRestResponse {
 	/**
 	 * Recursive utility method for converting {@link #data} from a {@link JSON} instance.
 	 * @param jsonArray
-	 * @return
+	 * @return A simple list object representing the JSON data without the JSON wrapper
 	 */
 	private List convert(JSONArray jsonArray) {
 		List list = new ArrayList();
@@ -143,7 +143,7 @@ public class MoabRestResponse {
 	/**
 	 * Recursive utility method for converting {@link #data} from a {@link JSON} instance.
 	 * @param jsonNull
-	 * @return
+	 * @return A simple "null" instance representing the JSON data without the JSON wrapper
 	 */
 	private Object convert(JSONNull jsonNull) {
 		return null;
