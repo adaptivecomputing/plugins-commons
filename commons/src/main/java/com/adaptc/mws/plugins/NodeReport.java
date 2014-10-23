@@ -111,6 +111,18 @@ public class NodeReport {
 	 * the RM services automatically and should not be set by the plugin.
 	 */
 	private Long precedence;
+	/**
+	 *
+	 */
+	private Date timeToLive;
+	/**
+	 *
+	 */
+	private String requestId;
+	/**
+	 *
+	 */
+	private String aclRules;
 
 	/**
 	 * @see #name
@@ -386,6 +398,42 @@ public class NodeReport {
 	 */
 	public void setPrecedence(Long precedence) {
 		this.precedence = precedence;
+	}
+	/**
+	 * @see #timeToLive
+	 */
+	public Date getTimeToLive() {
+		return timeToLive;
+	}
+	/**
+	 * @see #timeToLive
+	 */
+	public void setTimeToLive(Date timeToLive) {
+		this.timeToLive = timeToLive;
+	}
+	/**
+	 * @see #requestId
+	 */
+	public String getRequestId() {
+		return requestId;
+	}
+	/**
+	 * @see #requestId
+	 */
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+	/**
+	 * @see #aclRules
+	 */
+	public String getAclRules() {
+		return aclRules;
+	}
+	/**
+	 * @see #aclRules
+	 */
+	public void setAclRules(String aclRules) {
+		this.aclRules = aclRules;
 	}
 
 	/**
