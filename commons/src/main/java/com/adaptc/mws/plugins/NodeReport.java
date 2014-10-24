@@ -112,17 +112,18 @@ public class NodeReport {
 	 */
 	private Long precedence;
 	/**
-	 *
+	 * Specifies the time that the node is supposed to be retired by Moab.
+	 * Moab will not schedule any jobs on a node after its time to live has passed.
 	 */
 	private Date timeToLive;
 	/**
-	 *
+	 * An ID that can be used to track the request that created the node.
 	 */
 	private String requestId;
 	/**
-	 *
+	 * Can be used to control which users have access to the node in Moab.
 	 */
-	private String aclRules;
+	private List<String> aclRules;
 
 	/**
 	 * @see #name
@@ -426,13 +427,13 @@ public class NodeReport {
 	/**
 	 * @see #aclRules
 	 */
-	public String getAclRules() {
+	public List<String> getAclRules() {
 		return aclRules;
 	}
 	/**
 	 * @see #aclRules
 	 */
-	public void setAclRules(String aclRules) {
+	public void setAclRules(List<String> aclRules) {
 		this.aclRules = aclRules;
 	}
 
