@@ -123,7 +123,7 @@ public class NodeReport {
 	/**
 	 * Can be used to control which users have access to the node in Moab.
 	 */
-	private List<String> aclRules;
+	private List<AclReportRule> aclRules;
 
 	/**
 	 * @see #name
@@ -427,15 +427,13 @@ public class NodeReport {
 	/**
 	 * @see #aclRules
 	 */
-	public List<String> getAclRules() {
+	public List<AclReportRule> getAclRules() {
 		return aclRules;
 	}
 	/**
 	 * @see #aclRules
 	 */
-	public void setAclRules(List<String> aclRules) {
-		this.aclRules = aclRules;
-	}
+	public void setAclRules(List<AclReportRule> aclRules) { this.aclRules = aclRules; }
 
 	/**
 	 * Creates a new, empty node report.
