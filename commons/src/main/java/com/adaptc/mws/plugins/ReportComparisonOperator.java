@@ -82,9 +82,9 @@ public enum ReportComparisonOperator {
 	public static ReportComparisonOperator parse(String string) {
 		for (ReportComparisonOperator compare : values()) {
 			if (compare.name().equalsIgnoreCase(string) ||
-					compare.compare1 == string ||
+					compare.compare1 != null && compare.compare1.equalsIgnoreCase(string) ||
 					compare.compare2 != null && compare.compare2.equalsIgnoreCase(string) ||
-					compare.compare3 == string) {
+					compare.compare3 != null && compare.compare3.equalsIgnoreCase(string)) {
 				return compare;
 			}
 		}
