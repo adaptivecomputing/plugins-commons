@@ -11,7 +11,7 @@ import java.text.ParseException;
  *
  */
 
-enum AclReportAffinity {
+public enum AclReportAffinity {
 	/**
 	 * Access to the object is repelled using this rule until access is the last
 	 * choice.

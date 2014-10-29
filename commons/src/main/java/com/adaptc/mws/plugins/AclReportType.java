@@ -7,7 +7,7 @@ package com.adaptc.mws.plugins;
  *
  */
 
-enum AclReportType {
+public enum AclReportType {
 	/**
 	 * User
 	 */
@@ -59,72 +59,32 @@ enum AclReportType {
 
 	// The following enums are here for completeness but not
 	// documented or tested.
-	/**
-	 * Not supported
-	 */
 	JPRIORITY("JPRIORITY"),
 
-	/**
-	 * Not supported
-	 */
 	MEMORY("MEMORY"),
 
-	/**
-	 * Not supported
-	 */
 	NODE("NODE"),
 
-	/**
-	 * Not supported
-	 */
 	PAR("PAR"),
 
-	/**
-	 * Not supported
-	 */
 	PROC("PROC"),
 
-	/**
-	 * Not supported
-	 */
 	QTIME("QTIME"),
 
-	/**
-	 * Not supported
-	 */
 	QUEUE("QUEUE"),
 
-	/**
-	 * Not supported
-	 */
 	RACK("RACK"),
 
-	/**
-	 * Not supported
-	 */
 	SCHED("SCHED"),
 
-	/**
-	 * Not supported
-	 */
 	SYSTEM("SYSTEM"),
 
-	/**
-	 * Not supported
-	 */
 	TASK("TASK"),
 
-	/**
-	 * Not supported
-	 */
 	VC("VC"),
 
-	/**
-	 * Not supported
-	 */
 	XFACTOR("XFACTOR");
 
-	// See MAttrO and MHRObj in stratus/src/moab/MConst.c.
 	private String moabString;
 
 	private AclReportType(String moabString) {
