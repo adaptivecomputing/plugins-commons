@@ -24,6 +24,16 @@ public class AclReportRule {
 	private AclReportType type;
 
 	/**
+	 * The type of comparison to make against the ACL object.
+	 */
+	private ReportComparisonOperator comparator = ReportComparisonOperator.LEXIGRAPHIC_EQUAL;
+
+	/**
+	 * The type of comparison to make against the ACL object.
+	 */
+	private AclReportModifier modifier;
+
+	/**
 	 * The name of the object that is being granted (or denied) access.
 	 */
 	private String value;
@@ -45,12 +55,6 @@ public class AclReportRule {
 	private AclReportAffinity affinity = AclReportAffinity.POSITIVE;
 
 	/**
-	 * The type of comparison to make against the ACL object.
-	 */
-	private ReportComparisonOperator comparator = ReportComparisonOperator.LEXIGRAPHIC_EQUAL;
-
-
-	/**
 	 * @see #type
 	 */
 	public AclReportType getType() { return type; }
@@ -59,6 +63,26 @@ public class AclReportRule {
 	 * @see #type
 	 */
 	public void setType(AclReportType type) { this.type = type; }
+
+	/**
+	 * @see #comparator
+	 */
+	public ReportComparisonOperator getComparator() { return comparator; }
+
+	/**
+	 * @see #comparator
+	 */
+	public void setComparator(ReportComparisonOperator comparator) { this.comparator = comparator; }
+
+	/**
+	 * @see #modifier
+	 */
+	public AclReportModifier getModifier() {return modifier;}
+
+	/**
+	 * @see #modifier
+	 */
+	public void setModifier(AclReportModifier modifier) {this.modifier = modifier;}
 
 	/**
 	 * @see #value
@@ -80,14 +104,5 @@ public class AclReportRule {
 	 */
 	public void setAffinity(AclReportAffinity affinity) { this.affinity = affinity; }
 
-	/**
-	 * @see #comparator
-	 */
-	public ReportComparisonOperator getComparator() { return comparator; }
-
-	/**
-	 * @see #comparator
-	 */
-	public void setComparator(ReportComparisonOperator comparator) { this.comparator = comparator; }
 
 }
