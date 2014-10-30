@@ -22,19 +22,19 @@ public enum AclReportModifier {
 	 * XOR
 	 * All attributes of the type specified other than the ones listed in the ACL satisfy the ACL.
 	 */
-	XOR("^"),
+	EXCLUSIVE_OR("^"),
 	/**
 	 * CredLock
 	 * Matching jobs will be required to run on the resources reserved by this reservation.
 	 * You can use this modifier on accounts, classes, groups, qualities of service, and users.
 	 */
-	CredLock("&"),
+	CREDENTIAL_LOCK("&"),
 	/**
 	 * HPEnable
 	 * ACLs marked with this modifier are ignored during soft policy scheduling and are
 	 * only considered for hard policy scheduling once all eligible soft policy jobs start.
 	 */
-	HPEnable("~");
+	HARD_POLICY("~");
 
 	private String moabString;
 
