@@ -28,7 +28,7 @@ public enum ReportComparisonOperator {
 	/**
 	 * Valid values: "==", "eq", "="
 	 */
-	EQUAL("=", "eq", "=="),
+	EQUAL("==", "eq", "="),
 	/**
 	 * Valid values: "!=", "ne", "&lt;&gt;"
 	 */
