@@ -29,9 +29,31 @@ public class AclReportRule {
 	private ReportComparisonOperator comparator = ReportComparisonOperator.LEXIGRAPHIC_EQUAL;
 
 	/**
-	 * The type of comparison to make against the ACL object.
+	 * If attribute is met, the requestor is denied access regardless of any other satisfied ACLs.
 	 */
-	private AclReportModifier modifier;
+	private boolean excludeFromAcl;
+
+	/**
+	 * All required ACLs must be satisfied for requestor access to be granted.
+	 */
+	private boolean requireAll;
+
+	/**
+	 * All attributes of the type specified other than the ones listed in the ACL satisfy the ACL.
+	 */
+	private boolean xorWithAcl;
+
+	/**
+	 * Matching jobs will be required to run on the resources reserved by this reservation.
+	 * You can use this modifier on accounts, classes, groups, qualities of service, and users.
+	 */
+	private boolean credentialLock;
+
+	/**
+	 * ACLs marked with this modifier are ignored during soft policy scheduling and are
+	 * only considered for hard policy scheduling once all eligible soft policy jobs start.
+	 */
+	private boolean hardPolicyOnly;
 
 	/**
 	 * The name of the object that is being granted (or denied) access.
@@ -75,14 +97,54 @@ public class AclReportRule {
 	public void setComparator(ReportComparisonOperator comparator) { this.comparator = comparator; }
 
 	/**
-	 * @see #modifier
+	 * @see #excludeFromAcl
 	 */
-	public AclReportModifier getModifier() {return modifier;}
+	public boolean getExcludeFromAcl() {return excludeFromAcl;}
 
 	/**
-	 * @see #modifier
+	 * @see #excludeFromAcl
 	 */
-	public void setModifier(AclReportModifier modifier) {this.modifier = modifier;}
+	public void setExcludeFromAcl(boolean excludeFromAcl) {this.excludeFromAcl = excludeFromAcl;}
+
+	/**
+	 * @see #requireAll
+	 */
+	public boolean getRequireAll() {return requireAll;}
+
+	/**
+	 * @see #requireAll
+	 */
+	public void setRequireAll(boolean requireAll) {this.requireAll = requireAll;}
+
+	/**
+	 * @see #xorWithAcl
+	 */
+	public boolean getXorWithAcl() {return xorWithAcl;}
+
+	/**
+	 * @see #xorWithAcl
+	 */
+	public void setXorWithAcl(boolean xorWithAcl) {this.xorWithAcl = xorWithAcl;}
+
+	/**
+	 * @see #credentialLock
+	 */
+	public boolean getCredentialLock() {return credentialLock;}
+
+	/**
+	 * @see #credentialLock
+	 */
+	public void setCredentialLock(boolean credentialLock) {this.credentialLock = credentialLock;}
+
+	/**
+	 * @see #hardPolicyOnly
+	 */
+	public boolean getHardPolicyOnly() {return hardPolicyOnly;}
+
+	/**
+	 * @see #hardPolicyOnly
+	 */
+	public void setHardPolicyOnly(boolean hardPolicyOnly) {this.hardPolicyOnly = hardPolicyOnly;}
 
 	/**
 	 * @see #value
