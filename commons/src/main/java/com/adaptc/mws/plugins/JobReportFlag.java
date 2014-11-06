@@ -195,11 +195,7 @@ public enum JobReportFlag {
     /**
      * Only purge the job if it completed successfully
      */
-    PURGEONSUCCESSONLY,
-    /**
-     * Each job compute task requests all the procs on its node
-     */
-    ALLPROCS;
+    PURGEONSUCCESSONLY;
 
 	/**
 	 * Attempts to parse a string and convert it into a corresponding
