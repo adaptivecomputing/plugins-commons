@@ -31,29 +31,29 @@ public class AclReportRule {
 	/**
 	 * If attribute is met, the requestor is denied access regardless of any other satisfied ACLs.
 	 */
-	private boolean excludeFromAcl;
+	private boolean excludeFromAcl = false;
 
 	/**
 	 * All required ACLs must be satisfied for requestor access to be granted.
 	 */
-	private boolean requireAll;
+	private boolean requireAll = false;
 
 	/**
 	 * All attributes of the type specified other than the ones listed in the ACL satisfy the ACL.
 	 */
-	private boolean xorWithAcl;
+	private boolean xorWithAcl = false;
 
 	/**
 	 * Matching jobs will be required to run on the resources reserved by this reservation.
 	 * You can use this modifier on accounts, classes, groups, qualities of service, and users.
 	 */
-	private boolean credentialLock;
+	private boolean credentialLock = false;
 
 	/**
 	 * ACLs marked with this modifier are ignored during soft policy scheduling and are
 	 * only considered for hard policy scheduling once all eligible soft policy jobs start.
 	 */
-	private boolean hardPolicyOnly;
+	private boolean hardPolicyOnly = false;
 
 	/**
 	 * The name of the object that is being granted (or denied) access.

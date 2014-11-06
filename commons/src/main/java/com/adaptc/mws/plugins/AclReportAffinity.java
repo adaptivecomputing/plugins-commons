@@ -26,24 +26,7 @@ public enum AclReportAffinity {
 	/**
 	 * Access to the object is looked at as the first choice.
 	 */
-	POSITIVE("+"),
-
-	/**
-	 * Access to the object given the rule gives preemptible status to the
-	 * accessor. Supported only during GET.
-	 */
-	PREEMPTIBLE("PREEMPTIBLE"),
-
-	/**
-	 * The rule in question must be satisified in order to gain access to the
-	 * object. Supported only during GET.
-	 */
-	REQUIRED("REQUIRED"),
-
-	/**
-	 * The rule does not have its affinity available. Supported only during GET.
-	 */
-	UNAVAILABLE("UNAVAILABLE");
+	POSITIVE("+");
 
 	private String moabString;
 

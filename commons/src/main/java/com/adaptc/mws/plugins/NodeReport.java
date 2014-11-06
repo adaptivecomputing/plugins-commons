@@ -123,7 +123,7 @@ public class NodeReport {
 	/**
 	 * Can be used to control which users have access to the node in Moab.
 	 */
-	private List<AclReportRule> aclRules;
+	private List<AclReportRule> aclRules = new ArrayList<AclReportRule>();
 
 	/**
 	 * @see #name
