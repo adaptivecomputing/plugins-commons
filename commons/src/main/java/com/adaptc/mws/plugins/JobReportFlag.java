@@ -207,15 +207,7 @@ public enum JobReportFlag {
 	/**
 	 * Each job compute task requests all the procs on its node
 	 */
-	ALLPROCS,
-	/**
-	 * Each job communications are localized, with minimal routing outside job shape
-	 */
-	COMMLOCAL,
-	/**
-	 * Each job communications are low-intensity and insensitive to interference
-	 */
-	COMMTOLERANT;
+	ALLPROCS;
 
 	/**
 	 * Attempts to parse a string and convert it into a corresponding
