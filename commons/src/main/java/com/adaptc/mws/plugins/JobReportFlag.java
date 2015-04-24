@@ -192,14 +192,22 @@ public enum JobReportFlag {
 	 * VM job cannot be migrated.
 	 */
 	NOVMMIGRATE,
-    /**
-     * Only purge the job if it completed successfully
-     */
-    PURGEONSUCCESSONLY,
-    /**
-     * Each job compute task requests all the procs on its node
-     */
-    ALLPROCS,
+	/**
+	 * Join the stderr file to the stdout file.
+	 */
+	JOINSTDERRTOSTDOUT,
+	/**
+	 * Join the stdout file to the stderr file.
+	 */
+	JOINSTDOUTTOSTDERR,
+	/**
+	 * Only purge the job if it completed successfully
+	 */
+	PURGEONSUCCESSONLY,
+	/**
+	 * Each job compute task requests all the procs on its node
+	 */
+	ALLPROCS,
 	/**
 	 * Each job communications are localized, with minimal routing outside job shape
 	 */
