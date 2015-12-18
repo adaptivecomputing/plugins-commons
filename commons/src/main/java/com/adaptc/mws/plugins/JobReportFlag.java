@@ -193,6 +193,10 @@ public enum JobReportFlag {
 	 */
 	NOVMMIGRATE,
 	/**
+	 * Job is the master of a virtual container.
+	 */
+	VCMASTER,
+	/**
 	 * Join the stderr file to the stdout file.
 	 */
 	JOINSTDERRTOSTDOUT,
