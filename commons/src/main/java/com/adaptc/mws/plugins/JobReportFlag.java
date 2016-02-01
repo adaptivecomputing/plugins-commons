@@ -197,6 +197,11 @@ public enum JobReportFlag {
 	 */
 	VCMASTER,
 	/**
+	 * Specifies whether to use the Moab job ID or the resource manager's
+	 * job ID.
+	 */
+	USEMOABJOBID,
+	/**
 	 * Join the stderr file to the stdout file.
 	 */
 	JOINSTDERRTOSTDOUT,
