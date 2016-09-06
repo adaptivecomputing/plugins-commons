@@ -159,6 +159,10 @@ public enum JobReportFlag {
 	 */
 	FRAGMENT,
 	/**
+	 * Job will provision nodes, whether they already have OS or not.")
+	 */
+	FORCEPROVISION,
+	/**
 	 * The job is a system job which simply runs on the same node that Moab is
 	 * running on. This is usually used for running scripts and other
 	 * executables in workflows.
