@@ -159,7 +159,7 @@ public enum JobReportFlag {
 	 */
 	FRAGMENT,
 	/**
-	 * Job will provision nodes, whether they already have OS or not.")
+	 * Job will provision nodes, whether they already have OS or not.
 	 */
 	FORCEPROVISION,
 	/**
