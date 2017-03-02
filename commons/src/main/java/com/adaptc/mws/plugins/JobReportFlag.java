@@ -228,7 +228,11 @@ public enum JobReportFlag {
 	/**
 	 * Each job communications are low-intensity and insensitive to interference
 	 */
-	COMMTOLERANT;
+	COMMTOLERANT,
+	/**
+	 * Job does not generate network communication.
+	 */
+	COMMTRANSPARENT;
 
 	/**
 	 * Attempts to parse a string and convert it into a corresponding
