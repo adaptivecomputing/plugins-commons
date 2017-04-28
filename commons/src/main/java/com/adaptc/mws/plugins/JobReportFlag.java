@@ -232,7 +232,11 @@ public enum JobReportFlag {
 	/**
 	 * Job does not generate network communication.
 	 */
-	COMMTRANSPARENT;
+	COMMTRANSPARENT,
+	/**
+	 *  Allow system to dynamically adjust power.
+	 */
+	ALLOWPOWERADJUSTMENT;
 
 	/**
 	 * Attempts to parse a string and convert it into a corresponding
