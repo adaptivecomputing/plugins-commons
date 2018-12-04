@@ -49,10 +49,6 @@ public enum JobReportFlag {
 	 */
 	WIDERSVSEARCHALGO,
 	/**
-	 * The job is a VMTracking job for an externally-created VM (via job template).
-	 */
-	VMTRACKING,
-	/**
 	 * A destroy job has already been created from the template for this job.
 	 */
 	DESTROYTEMPLATESUBMITTED,
@@ -68,10 +64,6 @@ public enum JobReportFlag {
 	 * The job is using backfill to run.
 	 */
 	BACKFILL,
-	/**
-	 * The job can use resources from multiple resource managers and partitions.
-	 */
-	COALLOC,
 	/**
 	 * The job requires use of a reservation.
 	 */
@@ -192,10 +184,6 @@ public enum JobReportFlag {
 	 * Cancel job array on a specific exit code
 	 */
 	CANCELONEXITCODE,
-	/**
-	 * VM job cannot be migrated.
-	 */
-	NOVMMIGRATE,
 	/**
 	 * Job is the master of a virtual container.
 	 */
