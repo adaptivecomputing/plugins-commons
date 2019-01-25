@@ -224,7 +224,11 @@ public enum JobReportFlag {
 	/**
 	 *  Allow system to dynamically adjust power.
 	 */
-	ALLOWPOWERADJUSTMENT;
+	ALLOWPOWERADJUSTMENT,
+	/**
+	 * Job can use resources from multiple partitions
+	 */
+	COALLOC;
 
 	/**
 	 * Attempts to parse a string and convert it into a corresponding
