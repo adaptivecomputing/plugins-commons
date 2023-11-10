@@ -1,6 +1,8 @@
 buildscript {
 	repositories {
-		mavenCentral()
+		maven {
+			url = 'https://repo.maven.apache.org/maven2'
+		}
 	}
 	dependencies {
 		classpath 'com.adaptc.gradle:nexus-workflow:0.6'
@@ -36,7 +38,10 @@ subprojects { proj ->
 	}
 	
 	repositories {
-		mavenCentral()
+		//mavenCentral()
+		maven {
+			url = 'https://repo.maven.apache.org/maven2'
+		}
 	}
 	
 	dependencies {
@@ -46,8 +51,8 @@ subprojects { proj ->
 		}
 	}
 	
-	sourceCompatibility = "1.6"
-	targetCompatibility = "1.6"
+	sourceCompatibility = "1.8"
+	targetCompatibility = "1.8"
 
 	jar.doLast {
 		ant.jar(destfile:archivePath, update:true) {
