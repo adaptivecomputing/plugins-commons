@@ -62,7 +62,7 @@ public class PluginStopException extends Exception {
 	/**
 	 * <b>This value is currently unused in plugins, but may be used by custom plugin types
 	 * to support possible functionality</b>
-	 * <p/>
+	 * <p>
 	 * Retrieves whether or not the plugin is actually running after the exception occurred.
 	 * @return True if running, false otherwise
 	 */

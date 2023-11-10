@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * The job resource management service consists of methods to retrieve
  * and save job reports.  These reports are consolidated and returned to Moab.
- * <p/>
+ * <p>
  * For more information on how to use this service, see the MWS User Guide
  * section on Job RM Service.
  * @author bsaville

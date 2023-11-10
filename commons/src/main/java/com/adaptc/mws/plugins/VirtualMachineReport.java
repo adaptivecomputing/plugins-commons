@@ -7,7 +7,7 @@ import java.util.*;
  * resource.  This typically represents changes in a specific time period (ie between the last
  * poll and the current poll), but can also represent all known information concerning a resource
  * (ie the first time poll is run).
- * <p/>
+ * <p>
  * For more information on reporting resources, see the Plugin Reporting section in the
  * MWS documentation.
  * @author bsaville
@@ -36,7 +36,7 @@ public class VirtualMachineReport {
 	 * MWS will not report the object to Moab Workload Manager.  Otherwise (if at least one report has this value set
 	 * to false), the object will be reported as normal.  By default, all reports are considered "master" reports and
 	 * have this field set to false.
-	 * <p/>
+	 * <p>
 	 * This enables functionality where additional data is wished to be reported without reporting the object itself
 	 * if it has been deleted, no longer exists, etc.
 	 */

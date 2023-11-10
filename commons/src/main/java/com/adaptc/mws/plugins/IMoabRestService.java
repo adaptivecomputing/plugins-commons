@@ -12,13 +12,13 @@ import net.sf.json.JSONArray;
  * in Moab Web Services.  The {@link #isAPIVersionSupported(int)} method may
  * also be used to determine which API versions may be used for the current
  * running instance of MWS.
- * <p/>
+ * <p>
  * Methods are provided to perform each HTTP method:
  * GET, POST, PUT, and DELETE.  Several variations are given of each method
  * in order to utilize simpler or more complicated requests.  Each operation 
  * is performed internally.  In other words, no external network
  * connection is utilized to perform these calls.
- * <p/>
+ * <p>
  * The methods for each HTTP method may be called as follows (using the post
  * method as an example):
  * <pre>
@@ -35,7 +35,7 @@ import net.sf.json.JSONArray;
  *     [data:"here"]
  * }
  * </pre>
- * <p/>
+ * <p>
  * For more information on how to use this service, see the MWS User Guide
  * section on Moab Rest Service.
  * @author bsaville

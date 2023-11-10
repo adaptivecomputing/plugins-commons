@@ -96,7 +96,7 @@ public interface IJobReportRequirement {
 	 * {@link PluginConstants#RESOURCE_DISK}, {@link PluginConstants#RESOURCE_SWAP}, and {@link PluginConstants#RESOURCE_MEMORY}
 	 * are used as key values, {@link PluginConstants#RESOURCE_PROCESSORS} is ignored, and all key values are reported as
 	 * generic resources.
-	 * <p/>
+	 * <p>
 	 * For each entry, the total value is used if set.  If not set, the available value is used.
 	 * @return The current value
 	 */
@@ -106,7 +106,7 @@ public interface IJobReportRequirement {
 	 * Sets the job's resources requirements.  {@link PluginConstants#RESOURCE_DISK}, {@link PluginConstants#RESOURCE_SWAP},
 	 * and {@link PluginConstants#RESOURCE_MEMORY} are used as key values, {@link PluginConstants#RESOURCE_PROCESSORS}
 	 * is ignored, and all key values are reported as generic resources.
-	 * <p/>
+	 * <p>
 	 * For each entry, the total value is used if set.  If not set, the available value is used.
 	 * @param resourcesPerTask The value to set
 	 */

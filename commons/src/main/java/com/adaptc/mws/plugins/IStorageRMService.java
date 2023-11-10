@@ -3,10 +3,10 @@ package com.adaptc.mws.plugins;
 import java.util.List;
 
 /**
- * <b>Storage reporting is currently in BETA, fields and operations may change without notice!</b><br />
+ * <b>Storage reporting is currently in BETA, fields and operations may change without notice!</b><br>
  * The storage resource management service consists of methods to retrieve
  * and save storage reports.  These reports are consolidated and returned to Moab.
- * <p/>
+ * <p>
  * For more information on how to use this service, see the MWS User Guide
  * section on the Storage RM Service.
  * @author bsaville

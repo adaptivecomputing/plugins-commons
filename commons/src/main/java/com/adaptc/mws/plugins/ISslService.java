@@ -11,7 +11,7 @@ import java.io.File;
  * client and/or server certificate(s).  This socket factory may be used to generate a SSL
  * based Socket or may be used in combination with other communication libraries (such as the
  * {@link HttpsURLConnection}).
- * <p/>
+ * <p>
  * For the Apache HttpClient classes, such as when using {@link groovyx.net.http.HTTPBuilder}, a separate socket
  * factory must be used.  These methods are denoted by the "HttpClientSocketFactory" names.  To use the socket factory
  * with HttpBuilder (or {@link groovyx.net.http.RESTClient}), use the following example:
@@ -21,11 +21,11 @@ import java.io.File;
  *     		new Scheme("https", sslService.getHttpClientSocketFactory(...), 443)
  *     )
  * </pre>
- * <p/>
+ * <p>
  * Methods are provided for loading and using a client certificate file with an optional password
  * as well as overriding the trust store to use specified server or chain certificates.  Certificate
  * files may be in the PEM file format and do not need to be converted in DER as is typical of Java.
- * <p/>
+ * <p>
  * It should be noted that this service is not needed when performing SSL communications with
  * known and trusted certificates, such as when communicating with HTTPS enabled websites that
  * do not have a self-signed certificate.
@@ -33,7 +33,7 @@ import java.io.File;
  */
 public interface ISslService {
 	/**
-	 * Generates a socket factory that automatically trusts all server certificates.<br/>
+	 * Generates a socket factory that automatically trusts all server certificates.<br>
 	 * <b>WARNING</b>: If this socket factory is used, it may present a large security risk.  Use only
 	 * during development and only when the risks are understood.
 	 * @return An SSLSocketFactory instance that may be used in the communication library of choice
@@ -58,7 +58,7 @@ public interface ISslService {
 			boolean useLenientHostnameVerifier) throws Exception;
 
 	/**
-	 * Generates a hostname verifier that automatically trusts all host names.<br/>
+	 * Generates a hostname verifier that automatically trusts all host names.<br>
 	 * <b>WARNING</b>: If this hostname verifier is used, it may present a large security risk.  Use only
 	 * during development and only when the risks are understood.
 	 * @return A HostnameVerifier instance that may be used in the communication library of choice
@@ -72,7 +72,7 @@ public interface ISslService {
 
 	/**
 	 * Generates a socket factory for the specified options.
-	 * <p/>
+	 * <p>
 	 * If the certificate file is a relative path (no leading '/'), it will be loaded
 	 * from the MWS certificates directory as documented.
 	 * @param clientCertificate The client certificate file to use
@@ -90,7 +90,7 @@ public interface ISslService {
 
 	/**
 	 * Generates a socket factory for the specified options.
-	 * <p/>
+	 * <p>
 	 * If the certificate file or private key is a relative path (no leading '/'), it will be loaded
 	 * from the MWS certificates directory as documented.
 	 * @param clientCertificate The client certificate file to use
@@ -111,7 +111,7 @@ public interface ISslService {
 
 	/**
 	 * Generates a socket factory for the specified options.
-	 * <p/>
+	 * <p>
 	 * If the client, private key, or server certificate file is a relative path (no leading '/'), it will be loaded
 	 * from the MWS certificates directory as documented.
 	 * @param serverCertificate The server certificate(s) or chain certificate to use (multiple certificates may be present in this file)
@@ -128,7 +128,7 @@ public interface ISslService {
 
 	/**
 	 * Generates a socket factory for the specified options.
-	 * <p/>
+	 * <p>
 	 * If the client or server certificate file is a relative path (no leading '/'), it will be loaded
 	 * from the MWS certificates directory as documented.
 	 * @param clientCertificate The client certificate file to use
@@ -148,7 +148,7 @@ public interface ISslService {
 
 	/**
 	 * Generates a socket factory for the specified options.
-	 * <p/>
+	 * <p>
 	 * If the client, private key, or server certificate file is a relative path (no leading '/'), it will be loaded
 	 * from the MWS certificates directory as documented.
 	 * @param clientCertificate The client certificate file to use

@@ -107,7 +107,7 @@ public class PluginConstants {
 	/**
 	 * The standard date format to be used when communicating with Moab Web Services.
 	 * This may be used to parse out dates from requests in custom web services.
-	 * <p/>
+	 * <p>
 	 * <code>
 	 *	Date date = STANDARD_DATE_FORMAT.parse("2012-01-01 23:11:24 MDT")
 	 * </code>
@@ -126,7 +126,7 @@ public class PluginConstants {
 	/**
 	 * The standard date/time formatter to be used when communicating with Moab Web Services.
 	 * This may be used to parse out dates from requests in custom web services.
-	 * <p/>
+	 * <p>
 	 * <code>
 	 *	Date date = STANDARD_DATE_TIME_FORMATTER.parseDateTime("2012-01-01 23:11:24 UTC").toDate();
 	 * </code>
@@ -138,7 +138,7 @@ public class PluginConstants {
 	 * The prefix (including the period) used for all loggers configured for plugin types
 	 * and translators.  This should be used in custom component loggers to match the
 	 * generated logger names.
-	 * <p/>
+	 * <p>
 	 * NOTE: The period (.) <b>is</b> appended to the end of this string. i.e.
 	 * <code>Log log = LogFactory.getLog(LOGGER_PREFIX+test.MyClass.name)</code> will result in
 	 * a logger called "plugins.test.MyClass".

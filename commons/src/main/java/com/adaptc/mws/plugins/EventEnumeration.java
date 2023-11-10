@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  * arguments: String eventName, {@link IPluginEventService.Severity}, {@link IPluginEventService.EscalationLevel}.
  * The properties documented below may also be used to customize the output of certain methods, such as the event type
  * prefix and the origin suffix.
- * <p/>
+ * <p>
  * The fields and methods added are:
  * <ul>
  *     <li>String eventName (includes getter): The first parameter to the constructor, used in the getEventType() method.</li>
@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
  *     	{@link #ORIGIN_SUFFIX_PROPERTY_NAME}, this value will be returned.  Otherwise, the suffix
  *     	[EnumClassName]/[EnumValueName] will be returned.</li>
  * </ul>
- * <p/>
+ * <p>
  * Underneath the covers, this utilizes the groovy AST transformation process with the
  * {@link com.adaptc.mws.plugins.transformations.EventEnumerationASTTransformation} class.  This occurs at compile
  * time.

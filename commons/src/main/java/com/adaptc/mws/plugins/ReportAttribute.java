@@ -3,7 +3,7 @@ package com.adaptc.mws.plugins;
 /**
  * Signifies a single node attribute definition in Moab Workload Manager, including
  * both the {@link #getValue()} and {@link #getDisplayValue()} properties.
- * <p/>
+ * <p>
  * Neither property is required to send a valid attribute to MWM, but if a display value is
  * used, a value must also be present.  A value may be present without a display value.
  * The value should be used by jobs to request a certain attribute a certain value, while the

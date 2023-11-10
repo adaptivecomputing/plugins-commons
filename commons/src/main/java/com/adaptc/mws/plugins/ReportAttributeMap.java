@@ -8,16 +8,16 @@ import java.util.LinkedHashMap;
  * instead of checking for null values before adding attributes.  Additionally, this class
  * may be accessed in one of several ways:
  * <ul>
- *     <li>Using the map methods to access entries: {@link #get(Object)}} and {@link #put(Object, Object)}<br/>
- *     	<code>attributes.get('attribute1').value = "val"<br/>
+ *     <li>Using the map methods to access entries: {@link #get(Object)}} and {@link #put(Object, Object)}<br>
+ *     	<code>attributes.get('attribute1').value = "val"<br>
  *     	attributes.get(attributeName).value = "val"</code>
  *     </li>
- *     <li>Accessing entries using array-like notation: {@link #getAt(String)}<br/>
- *         <code>attributes['attribute1'].value = "val"<br/>
+ *     <li>Accessing entries using array-like notation: {@link #getAt(String)}<br>
+ *         <code>attributes['attribute1'].value = "val"<br>
  *         attributes[attributeName].value = "val"</code>
  *     </li>
- *     <li>Accessing entries as properties: {@link #propertyMissing(String)}<br/>
- *         <code>attributes.attribute1.value = "val"<br/>
+ *     <li>Accessing entries as properties: {@link #propertyMissing(String)}<br>
+ *         <code>attributes.attribute1.value = "val"<br>
  *         attributes."${attributeName}".value = "val"</code>
  *     </li>
  * </ul>
@@ -25,8 +25,8 @@ import java.util.LinkedHashMap;
  * Additionally, this object may be treated as a map of string to string values, meaning that
  * the value can be set directly on any attribute entry.  This may be used by utilizing the put method.
  * <ul>
- *     <li>{@link #put(Object, Object)}<br/>
- *     	<code>attributes.put('attribute1', "val")<br/>
+ *     <li>{@link #put(Object, Object)}<br>
+ *     	<code>attributes.put('attribute1', "val")<br>
  *     	attributes.put(attributeName, "val")</code>
  *     </li>
  * </ul>
@@ -57,8 +57,8 @@ public class ReportAttributeMap extends LinkedHashMap<String, ReportAttribute> {
 	}
 
 	/**
-	 * Allows array-like access to entries.<br/>
-	 *  <code>attributes['attribute1'].value = "val"<br/>
+	 * Allows array-like access to entries.<br>
+	 *  <code>attributes['attribute1'].value = "val"<br>
 	 *  attributes[attributeName].value = "val"</code>
 	 * @param key The key to retrieve
 	 * @return A {@link com.adaptc.mws.plugins.ReportAttribute} value, never null
@@ -68,8 +68,8 @@ public class ReportAttributeMap extends LinkedHashMap<String, ReportAttribute> {
 	}
 
 	/**
-	 * Allows property access to entries.<br/>
-	 *  <code>attributes.attribute1.value = "val"<br/>
+	 * Allows property access to entries.<br>
+	 *  <code>attributes.attribute1.value = "val"<br>
 	 *  attributes."${attributeName}".value = "val"</code>
 	 * @param key The key to retrieve
 	 * @return A {@link com.adaptc.mws.plugins.ReportAttribute} value, never null

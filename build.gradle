@@ -70,6 +70,13 @@ subprojects { proj ->
 		}
 	}
 
+	if (JavaVersion.current().isJava8Compatible()) {
+		tasks.withType(Javadoc) {
+			// disable strict doclint checking in Java 8
+			options.addStringOption('Xdoclint:none', '-quiet')
+		}
+	}
+
 	task sourcesJar(type: Jar) {
 		classifier = 'sources'
 		from sourceSets.main.allSource

@@ -18,7 +18,7 @@ public enum PluginState {
 	/**
 	 * The plugin is currently not receiving any events but is
 	 * also not stopped.
-	 * <p/>
+	 * <p>
 	 * This should be used when polling or other events should
 	 * stop only temporarily without firing the stop events.
 	 */

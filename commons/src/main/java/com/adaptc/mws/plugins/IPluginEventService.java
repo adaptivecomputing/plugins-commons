@@ -9,7 +9,7 @@ import java.util.Map;
  * generating fields such as "origin" and "code" to the plugin framework and provides enumerations to help write
  * clean code without the use of magic strings.  Note that while the service is called the event service, it also
  * contains methods for dealing with notification conditions which are commonly related to events.
- * <p/>
+ * <p>
  * For more information on how to use this service, see the MWS User Guide
  * section on Plugin Event Service.
  * @author bsaville
