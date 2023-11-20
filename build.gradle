@@ -12,6 +12,11 @@ buildscript {
 apply plugin:'idea'
 apply plugin:com.adaptc.gradle.nexusworkflow.NexusWorkflowPlugin
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+}
+
 subprojects { proj ->
 	group = "com.adaptc.mws"
 

@@ -113,7 +113,7 @@ public class MoabRestResponse {
 	 * @return A simple map object representing the JSON data without the JSON wrapper
 	 */
 	private Map convert(JSONObject jsonObject) {
-		Map obj = new HashMap();
+		Map<Object,Object> obj = new HashMap<>();
 		for (Object k : jsonObject.keySet()) {
 			Object v = jsonObject.get(k);
 			if (v instanceof JSON)
@@ -130,7 +130,7 @@ public class MoabRestResponse {
 	 * @return A simple list object representing the JSON data without the JSON wrapper
 	 */
 	private List convert(JSONArray jsonArray) {
-		List list = new ArrayList();
+		List<Object> list = new ArrayList<>();
 		for(Object v : jsonArray) {
 			if (v instanceof JSON)
 				list.add(convert((JSON)v));
