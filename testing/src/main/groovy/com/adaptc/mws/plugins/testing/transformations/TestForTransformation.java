@@ -21,7 +21,6 @@ import com.adaptc.mws.plugins.testing.support.PluginsResourceUtils;
 import com.adaptc.mws.plugins.testing.TestFor;
 import com.adaptc.mws.plugins.testing.PluginUnitTestMixin;
 import com.adaptc.mws.plugins.testing.TranslatorUnitTestMixin;
-import groovy.util.GroovyTestCase;
 import org.codehaus.groovy.ast.*;
 import org.codehaus.groovy.ast.expr.*;
 import org.codehaus.groovy.ast.stmt.*;
@@ -70,7 +69,6 @@ public class TestForTransformation extends TestMixinTransformation {
 	public static final AnnotationNode BEFORE_ANNOTATION = new AnnotationNode(BEFORE_CLASS_NODE);
 
 	public static final AnnotationNode TEST_ANNOTATION = new AnnotationNode(new ClassNode(Test.class));
-	public static final ClassNode GROOVY_TEST_CASE_CLASS = new ClassNode(GroovyTestCase.class);
 
 	@Override
 	public void visit(ASTNode[] astNodes, SourceUnit source) {
@@ -188,14 +186,6 @@ public class TestForTransformation extends TestMixinTransformation {
 	public void testFor(ClassNode classNode, ClassExpression ce, boolean addLogField) {
 		boolean junit3Test = isJunit3Test(classNode);
 		boolean isSpockTest = isSpockTest(classNode);
-
-		// make sure the 'log' property is not the one from GroovyTestCase
-		if (addLogField) {
-			FieldNode log = classNode.getField("log");
-			if (log == null || log.getDeclaringClass().equals(GROOVY_TEST_CASE_CLASS)) {
-				LoggingTransformer.addLogField(classNode, classNode.getName());
-			}
-		}
 
 		if (!isSpockTest && !junit3Test) {
 			// assume JUnit 4
