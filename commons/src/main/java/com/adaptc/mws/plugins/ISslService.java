@@ -12,9 +12,9 @@ import java.io.File;
  * based Socket or may be used in combination with other communication libraries (such as the
  * {@link HttpsURLConnection}).
  * <p>
- * For the Apache HttpClient classes, such as when using {@link groovyx.net.http.HTTPBuilder}, a separate socket
+ * For the Apache HttpClient classes, such as when using <code>groovyx.net.http.HTTPBuilder</code>, a separate socket
  * factory must be used.  These methods are denoted by the "HttpClientSocketFactory" names.  To use the socket factory
- * with HttpBuilder (or {@link groovyx.net.http.RESTClient}), use the following example:
+ * with HttpBuilder (or <code>groovyx.net.http.RESTClient</code>), use the following example:
  * <pre>
  *     HttpBuilder builder = new HttpBuilder("https://example.com")
  *     builder.client.connectionManager.schemeRegistry.register(
