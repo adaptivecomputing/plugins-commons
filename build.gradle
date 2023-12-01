@@ -148,7 +148,7 @@ subprojects { proj ->
 	}
 }
 
-task wrapper(type: Wrapper) {
-	gradleVersion = '2.0'
+wrapper {
+	gradleVersion = '2.3'
 	jarFile = 'wrapper/wrapper.jar'
 }
