@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class JobReportRequirement implements IJobReportRequirement {
 	/**
-	 * @see #getImage()
+	 * @see #getOperatingSystem()
 	 */
-	private String image;
+	private String operatingSystem;
 	/**
 	 * @see #getNodeCount()
 	 */
@@ -44,14 +44,14 @@ public class JobReportRequirement implements IJobReportRequirement {
 	/**
 	 * {@inheritDoc}
 	 */
-	public String getImage() {
-		return image;
+	public String getOperatingSystem() {
+		return operatingSystem;
 	}
 	/**
 	 * {@inheritDoc}
 	 */
-	public void setImage(String image) {
-		this.image = image;
+	public void setOperatingSystem(String operatingSystem) {
+		this.operatingSystem = operatingSystem;
 	}
 	/**
 	 * {@inheritDoc}

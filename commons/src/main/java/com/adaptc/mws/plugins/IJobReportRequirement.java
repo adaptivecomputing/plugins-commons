@@ -10,14 +10,14 @@ import java.util.List;
  */
 public interface IJobReportRequirement {
 	/**
-	 * Retrieves the required image for the job, this relates to the image name field in the MWS Image Catalog.
+	 * Retrieves the required operating system for the job.
 	 */
-	public String getImage();
+	public String getOperatingSystem();
 
 	/**
-	 * Sets the required image for the job, this relates to the image name field in the MWS Image Catalog.
+	 * Sets the required operating system for the job.
 	 */
-	public void setImage(String image);
+	public void setOperatingSystem(String operatingSystem);
 
 	/**
 	 * Retrieves the minimum number of nodes called for by the requirement.

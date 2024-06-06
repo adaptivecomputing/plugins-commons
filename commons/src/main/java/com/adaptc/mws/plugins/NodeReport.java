@@ -45,29 +45,11 @@ public class NodeReport {
 	 * The list of the node's features.
 	 */
 	private List<String> features = new ArrayList<String>();
-	/**
-	 * The names of the images that this node can be provisioned as.  This relates to the image name
-	 * in the MWS Image Catalog.
-	 */
-	private List<String> imagesAvailable = new ArrayList<String>();
-	/**
-	 * A list of messages to attach to the node.  Double quotes (whether escaped or not) will be converted into
-	 * single quotes.
-	 */
 	private List<String> messages = new ArrayList<String>();
 	/**
-	 * The name of the image that this node is currently provisioned as.  This relates to the image name
-	 * in the MWS Image Catalog and hypervisor information (including available virtualized images) is
-	 * pulled from the catalog and reported to Moab.
+	 * The name of the operating system that this node is currently provisioned with.
 	 */
-	private String image;
-	/**
-	 * If non-null, determines whether the node is added to the migration exclusion list or not
-	 * when reported.  A true value disables migrations to or from the node, while a false value
-	 * enables them.  A null value will use the lists configured in the migration exclusion
-	 * list global policy.
-	 */
-	private Boolean migrationDisabled;
+	private String operatingSystem;
 	/**
 	 * The node's partition.
 	 */
@@ -213,30 +195,17 @@ public class NodeReport {
 		this.features = features;
 	}
 	/**
-	 * @see #image
+	 * @see #operatingSystem
 	 */
-	public String getImage() {
-		return image;
+	public String getOperatingSystem() {
+		return operatingSystem;
 	}
 	/**
-	 * Sets the image name for the node. This is used along with the MWS Image Catalog to retrieve hypervisor
-	 * and supported virtual machine information.
-	 * @see #image
+	 * Sets the operatingSystem for the node.
+	 * @see #operatingSystem
 	 */
-	public void setImage(String image) {
-		this.image = image;
-	}
-	/**
-	 * @see #migrationDisabled
-	 */
-	public Boolean getMigrationDisabled() {
-		return migrationDisabled;
-	}
-	/**
-	 * @see #migrationDisabled
-	 */
-	public void setMigrationDisabled(Boolean migrationDisabled) {
-		this.migrationDisabled = migrationDisabled;
+	public void setOperatingSystem(String operatingSystem) {
+		this.operatingSystem = operatingSystem;
 	}
 	/**
 	 * @see #partition
@@ -335,18 +304,6 @@ public class NodeReport {
 	 */
 	public void setArchitecture(String architecture) {
 		this.architecture = architecture;
-	}
-	/**
-	 * @see #imagesAvailable
-	 */
-	public List<String> getImagesAvailable() {
-		return imagesAvailable;
-	}
-	/**
-	 * @see #imagesAvailable
-	 */
-	public void setImagesAvailable(List<String> imagesAvailable) {
-		this.imagesAvailable = imagesAvailable;
 	}
 	/**
 	 * @see #messages

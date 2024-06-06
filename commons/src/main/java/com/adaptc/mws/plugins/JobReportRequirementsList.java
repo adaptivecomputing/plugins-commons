@@ -35,14 +35,14 @@ public class JobReportRequirementsList extends ArrayList<JobReportRequirement> i
 	/**
 	 * {@inheritDoc}
 	 */
-	public String getImage() {
-		return getFirst().getImage();
+	public String getOperatingSystem() {
+		return getFirst().getOperatingSystem();
 	}
 	/**
 	 * {@inheritDoc}
 	 */
-	public void setImage(String image) {
-		getFirst().setImage(image);
+	public void setOperatingSystem(String operatingSystem) {
+		getFirst().setOperatingSystem(operatingSystem);
 	}
 	/**
 	 * {@inheritDoc}
