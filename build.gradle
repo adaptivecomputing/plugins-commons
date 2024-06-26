@@ -5,7 +5,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'com.adaptc.gradle:nexus-workflow:0.6'
+		classpath 'com.adaptc.gradle:nexus-workflow:0.8'
 	}
 }
 
