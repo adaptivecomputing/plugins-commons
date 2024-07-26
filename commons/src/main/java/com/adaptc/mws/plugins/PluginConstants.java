@@ -17,28 +17,24 @@ public class PluginConstants {
 	/**
 	 * The processors resource name.
 	 * @see NodeReport#resources
-	 * @see VirtualMachineReport#resources
 	 * @see JobReportRequirement#resourcesPerTask
 	 */
 	public static final String RESOURCE_PROCESSORS = "processors";
 	/**
 	 * The memory resource name.
 	 * @see NodeReport#resources
-	 * @see VirtualMachineReport#resources
 	 * @see JobReportRequirement#resourcesPerTask
 	 */
 	public static final String RESOURCE_MEMORY = "memory";
 	/**
 	 * The disk resource name.
 	 * @see NodeReport#resources
-	 * @see VirtualMachineReport#resources
 	 * @see JobReportRequirement#resourcesPerTask
 	 */
 	public static final String RESOURCE_DISK = "disk";
 	/**
 	 * The swap memory resource name.
 	 * @see NodeReport#resources
-	 * @see VirtualMachineReport#resources
 	 * @see JobReportRequirement#resourcesPerTask
 	 */
 	public static final String RESOURCE_SWAP = "swap";
@@ -46,7 +42,6 @@ public class PluginConstants {
 	 * A list of known resource names.  Other resources in the {@link ReportResourceMap}
 	 * entries are considered to be generic resources in Moab Workload Manager.
 	 * @see NodeReport#resources
-	 * @see VirtualMachineReport#resources
 	 * @see JobReportRequirement#resourcesPerTask
 	 */
 	public static final List<String> KNOWN_RESOURCES = Arrays.asList(
@@ -64,13 +59,11 @@ public class PluginConstants {
 	/**
 	 * The CPU load metric name.
 	 * @see NodeReport#metrics
-	 * @see VirtualMachineReport#metrics
 	 */
 	public static final String METRIC_CPULOAD = "cpuLoad";
 	/**
 	 * The CPU speed metric name.
 	 * @see NodeReport#metrics
-	 * @see VirtualMachineReport#metrics
 	 */
 	public static final String METRIC_SPEED = "speed";
 	/**
@@ -83,7 +76,6 @@ public class PluginConstants {
 	 * A list of known metric names.  Other resources in the "metrics" map
 	 * entries are considered to be generic metrics in Moab Workload Manager.
 	 * @see NodeReport#metrics
-	 * @see VirtualMachineReport#metrics
 	 */
 	public static final List<String> KNOWN_METRICS = Arrays.asList(
 			METRIC_CPULOAD,
